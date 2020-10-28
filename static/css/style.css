@@ -1,0 +1,20 @@
+.uppercase-text {
+    text-transform: uppercase;
+}
+
+/*--------------------------------------------Navbar*/
+
+.menu-collapse-align {
+  margin-right: 5px;
+  text-align: left;
+}
+
+#searchRecipe {
+    display: inline-block;
+    padding-left: 20%;
+    position: center;
+}
+
+#searchRecipe > input {
+    width: 200px;    
+}
