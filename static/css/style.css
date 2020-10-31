@@ -13,6 +13,11 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+    color: #025830;
+    text-transform: uppercase;
+}
+
 .uppercase-text {
     text-transform: uppercase;
 }
@@ -46,4 +51,42 @@ footer {
     text-align: center;
     padding-top: 15px;
     max-height: 60px;
+}
+
+/*--------------------------------------------Home Page*/
+
+#social-media {
+    text-align: center;
+    background-color: #e5e8ea;
+    min-height: 200px;
+    padding: 30px 0;
+}
+
+#social-media hr {
+    width: 50%;
+    height: 3px;
+    border: 0;
+    background-color: #ec6a04;
+}
+
+#social-media p {
+    font-size: 25px;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.social-media-icons {
+    font-size: 60px;
+    padding-top: 13px;
+    display: inline-block;
+    text-align: center;
+}
+
+.social-media-icons li a i {
+    color: #343a40;
+}
+
+.social-media-icons li a i:hover,
+.social-media-icons li a i:focus {
+    color: #ff9901;
 }
