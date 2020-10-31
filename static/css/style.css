@@ -128,6 +128,47 @@ footer {
     color: #ff9901;
 }
 
+/* ----------------------------------------Register */
+
+.register-cover {
+    background-image: url('../images/register_image_cover.jpg');
+    background-size: cover;
+    height: 100vh;
+    min-height: 600px;
+}
+
+#registerCard {
+    display: block;
+    padding: 30px 10px;
+}
+
+#registerCard h1 {
+    text-align: center;
+    font-size: 50px;
+    padding: 20px 0;
+}
+
+#registerCard label {
+    font-weight: bold;
+    color: #474747;
+}
+
+#registerCard input {
+    margin-bottom: 20px;
+}
+
+.register-form {
+    width: 100%;
+}
+
+#registerCard button {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 auto;
+}
+
 /* ----------------------------------------Media Queries */
 
 @media screen and (max-width: 760px) {

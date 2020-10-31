@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="container-fluid register-cover">
+    <div class="row h-100">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
+            <div id="registerCard" class="card card-block">
+                <div class="card-body">
+                    <h1>Join us!</h1>
+                    <form class="register-form">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Write your Email" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Choose Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Write your Password" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
