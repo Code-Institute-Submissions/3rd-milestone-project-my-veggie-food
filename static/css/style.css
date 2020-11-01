@@ -81,6 +81,8 @@ footer {
 #go_veggie a {
     margin: 20px 0;
     font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 #social-media {
@@ -128,7 +130,7 @@ footer {
     color: #ff9901;
 }
 
-/* ----------------------------------------Register */
+/* ----------------------------------------Register and Login*/
 
 .register-cover {
     background-image: url('../images/register_image_cover.jpg');
@@ -137,23 +139,34 @@ footer {
     min-height: 600px;
 }
 
-#registerCard {
+.login-cover {
+    background-image: url('../images/sign_in_image_cover.jpg');
+    background-size: cover;
+    height: 100vh;
+    min-height: 600px;
+}
+
+#registerCard,
+#loginCard {
     display: block;
     padding: 30px 10px;
 }
 
-#registerCard h1 {
+#registerCard h1,
+#loginCard h1 {
     text-align: center;
     font-size: 50px;
     padding: 20px 0;
 }
 
-#registerCard label {
+#registerCard label,
+#loginCard label {
     font-weight: bold;
     color: #474747;
 }
 
-#registerCard input {
+#registerCard input,
+#loginCard input {
     margin-bottom: 20px;
 }
 
@@ -161,7 +174,8 @@ footer {
     width: 100%;
 }
 
-#registerCard button {
+#registerCard button,
+#loginCard button {
     font-weight: bold;
     font-size: 20px;
     text-transform: uppercase;
