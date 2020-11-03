@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- Title + Cover Image -->
+
+<section id="contactIntro" class="container-fluid">
+    <div class="row">
+        <div class="col-12 pl-0 pr-0">
+            <img src="static/images/contact_cover.jpg" alt="Contact Us" class="d-block w-100"/>
+        </div>
+        <div class="col-12">
+            <h1>Contact</h1>
+            <hr>
+            <br>
+            <h3>We'd <span><i class="fas fa-heart"></i></span> to help!</h3>
+            <br>
+        </div>
+        <div class="col-12">
+            <p>
+                Email us with any question or suggestion, we will very happy to answer all your
+                concerns. At <strong><em>My Veggie Food</em></strong>, we love to hear all comments
+                and feedback you can give us.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form container -->
+
+<section>
+    <div id="contact-form-container" class="container shadow">
+        <div class="row">
+            <div class="col-12">
+                <h2>Contact Form</h2>
+                <br>
+                <form>
+                    <label for="name">Your Name <span class="required-symbol">*</span></label>
+                    <input type="text" name="name" id="name" class="form-control" required/>
+                    <br>
+                    <label for="email">Your Email <span class="required-symbol">*</span></label>
+                    <input type="email" name="email" id="email" class="form-control" required/>
+                    <br>
+                    <label for="message">Your Message <span class="required-symbol">*</span></label>
+                    <textarea rows="8" name="message" id="message" class="form-control" required></textarea>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-12">
+                            <button type="submit" value="Submit" class="btn btn-success">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

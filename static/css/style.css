@@ -22,6 +22,10 @@ h1 {
     text-transform: uppercase;
 }
 
+.required-symbol {
+    color: #ab0d0d;
+}
+
 /*--------------------------------------------Navbar*/
 
 .menu-collapse-align {
@@ -101,7 +105,7 @@ footer {
     width: 50%;
     height: 3px;
     border: 0;
-    background-color: #ec6a04;
+    background-color: #fe4600;
 }
 
 #social-media h1 {
@@ -182,6 +186,61 @@ footer {
     display: block;
     margin: 0 auto;
 }
+
+/* ----------------------------------------Contact Page */
+
+#contactIntro {
+    text-align: center;
+}
+
+#contactIntro h1 {
+    font-size: 50px;
+    padding-top: 30px;
+}
+
+#contactIntro hr {
+    width: 50%;
+    height: 3px;
+    border: 0;
+    background-color: #ec6a04;
+}
+
+#contactIntro h3 {
+    font-size: 35px;
+}
+
+#contactIntro i {
+    color: #fe4600;
+}
+
+#contactIntro p {
+    font-size: 20px;
+    padding: 0 15px
+}
+
+#contact-form-container {
+    padding: 40px 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#contact-form-container h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #3e423e;
+}
+
+#contact-form-container label {
+    font-weight: bold;
+}
+
+#contact-form-container button {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* ----------------------------------------Media Queries */
 

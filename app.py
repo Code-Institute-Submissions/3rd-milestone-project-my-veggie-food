@@ -16,7 +16,12 @@ def register():
 
 @app.route('/login')
 def login():
-    return render_template('login.html', page_title='login')
+    return render_template('login.html', page_title='Login')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', page_title='Contact')
 
 
 if __name__ == '__main__':
