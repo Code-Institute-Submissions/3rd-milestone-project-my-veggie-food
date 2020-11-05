@@ -35,10 +35,27 @@ def contact():
     return render_template('contact.html', page_title='Contact')
 
 
-@app.route('/recipes')
-def get_recipes():
-    recipes = mongo.db.recipes.find()
-    return render_template("recipes.html", recipes=recipes)
+@app.route('/recipes/<category>')
+def get_recipes(category):
+    if category == "all":
+        category = "All recipes"
+        recipes = mongo.db.recipes.find()
+    elif category == "main":
+        recipes = mongo.db.recipes.find({"category_name": "Main"})
+    elif category == "desserts":
+        recipes = mongo.db.recipes.find({"category_name": "Desserts"})
+    elif category == "snacks":
+        recipes = mongo.db.recipes.find({"category_name": "Snacks"})
+    elif category == "smoothies":
+        recipes = mongo.db.recipes.find({"category_name": "Smoothies"})
+    return render_template("recipes.html", recipes=recipes, category=category, page_title=category)
+
+
+
+@app.route('/recipe/<recipe_id>')
+def get_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template ("recipe.html", recipe=recipe)
 
 
 if __name__ == '__main__':
