@@ -1,16 +1,29 @@
 {% extends 'base.html' %} {% block content %}
 
-{% for recipe in recipes %}
-    {{ recipe.recipe_title }}<br>
-    {{ recipe.image_url }}<br>
-    {{ recipe.description }}<br>
-    {{ recipe.servings }}<br>
-    {{ recipe.calories }}<br>
-    {{ recipe.prep_time }}<br>
-    {{ recipe.cook_time }}<br>
-    {{ recipe.ingredients }}<br>
-    {{ recipe.instructions }}<br>
-    {{ recipe.tips }}<br>
-{% endfor %}
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ page_title }}</h1>
+        </div>
+    </div>
+   
+    <div class="row">
+        {% if recipes.count() > 0 %}
+            {% for recipe in recipes %}
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div>
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}"/>
+                        <h3>{{ recipe.recipe_title }}</h3>
+                        <p>{{ recipe.description }}</p>
+                        <a role="button" class="btn btn-success" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+        <p class="pb-5">No recipes found!</p>
+        {% endif %}
+    </div>
+  
+</section>
 
 {% endblock %}
