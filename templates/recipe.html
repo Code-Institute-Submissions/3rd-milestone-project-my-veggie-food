@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ recipe.recipe_title }}</h2>
+            <!-- Recipe Image -->
+            <img src="{{ recipe.image_url }}" alt="Recipe image"/>
+            <h3>{{ recipe.description }}</h3>
+        </div>
+        <!-- Recipe information -->
+        <div class="col-3">
+            <h6>Servings:</h6>
+            <p>{{ recipe.servings }}</p>
+        </div>
+        <div class="col-3">
+            <h6>Calories:</h6>
+            <p>{{ recipe.calories }}</p>
+        </div>
+        <div class="col-3">
+            <h6>Prep Time :</h6>
+            <p>{{ recipe.prep_time }}</p>
+        </div>
+        <div class="col-3">
+            <h6>Cook time:</h6>
+            <p>{{ recipe.cook_time }}</p>
+        </div>
+        <!-- Ingredients -->
+        <div class="col-md-4 col-xs-12">
+            <h4>Ingredients</h4>
+            <ul>
+            {% for ingredient in recipe.ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <!-- Instructions -->
+        <div class="col-md-8 col-xs-12">
+            <h4>Instructions</h4>
+            <ul>
+                {% for instruction in recipe.instructions %}
+                    <li>{{ instruction }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Tips -->
+        <div class="col-12">
+            <h4>Tips</h4>
+            <p>{{ recipe.tips }}</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
