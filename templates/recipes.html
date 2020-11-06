@@ -1,29 +1,33 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="container-fluid">
+<section id="recipe-container" class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <h1>{{ page_title }}</h1>
+            <h1 class="">{{ page_title }}</h1>
+            <hr>
         </div>
     </div>
-   
-    <div class="row">
-        {% if recipes.count() > 0 %}
-            {% for recipe in recipes %}
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div>
-                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}"/>
+    <!-- Here will appear all the recipes created in an organized and easy to access way for the user -->
+    <div class="card-body pl-0 pr-0">
+        <div class="row">
+            {% if recipes.count() > 0 %}
+                {% for recipe in recipes %}
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}" class="img-fluid rounded"/>
                         <h3>{{ recipe.recipe_title }}</h3>
-                        <p>{{ recipe.description }}</p>
+                        <p>{{ recipe.description |truncate(80) }}</p>
                         <a role="button" class="btn btn-success" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
                     </div>
-                </div>
-            {% endfor %}
-        {% else %}
-        <p class="pb-5">No recipes found!</p>
-        {% endif %}
+                {% endfor %}
+                <!-- This message is only displayed if the category does not contain any recipes  -->
+            {% else %}
+            <img src="/static/images/something_is_not_right_no-recipes-found.png" class="d-block w-100" alt="ups, something is not right here"/>
+            <div class="col-12">
+                <p class="message-error">Sorry, no recipes found!</p>
+            </div>
+            {% endif %}
+        </div>
     </div>
-  
 </section>
 
 {% endblock %}
