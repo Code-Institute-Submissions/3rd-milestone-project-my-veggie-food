@@ -21,8 +21,27 @@ def index():
     return render_template('index.html', page_title='Home')
 
 
-@app.route('/register')
+@app.route('/register', methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # Check if username already exist in DB 
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "email": request.form.get("email").lower(),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful")
     return render_template('register.html', page_title='Register')
 
 
@@ -51,7 +70,6 @@ def get_recipes(category):
     elif category == "smoothies":
         recipes = mongo.db.recipes.find({"category_name": "Smoothies"})
     return render_template("recipes.html", recipes=recipes, category=category, page_title=category)
-
 
 
 # Route to view an specific recipe, providing data for the selected recipe
