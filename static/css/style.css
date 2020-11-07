@@ -160,6 +160,10 @@ footer {
     background-color: #ec6a04;
 }
 
+.recipes-container {
+    margin: 30px 5px;
+}
+
 #recipe-container .card-body h3 {
     text-align: center;
     color: #343a40;
@@ -344,6 +348,28 @@ footer {
     text-transform: uppercase;
     display: block;
     margin: 0 auto;
+}
+
+/* ----------------------------------------User Profile */
+
+#user-profile-cover {
+    background-image: url('../images/img-user-profile-cover.jpg');
+    background-size: cover;
+    height: 30vh;
+    min-height: 300px;
+}
+
+#user-profile-cover .card-body {
+    text-align: center;
+}
+
+#user-profile-cover .card-body h1 {
+    font-size: 60px;
+}
+
+#user-profile-cover .card-body h2 {
+    text-transform: uppercase;
+    color: #5e695e;
 }
 
 /* ----------------------------------------Contact Page */
