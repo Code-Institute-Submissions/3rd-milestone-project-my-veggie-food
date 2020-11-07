@@ -85,6 +85,11 @@ def add_recipes():
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
 
 
+@app.route('/submit_recipe', methods=["POST"])
+def submit_recipe():
+    return redirect(url_for("recipe.html"))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

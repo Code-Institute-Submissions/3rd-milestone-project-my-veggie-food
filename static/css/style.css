@@ -269,6 +269,30 @@ footer {
     margin: 0 10px;
 }
 
+/* ----------------------------------------Add Recipes Form*/
+
+#add-your-recipe h1 {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 50px;
+}
+
+#add-your-recipe form {
+    padding: 50px 30px;
+    margin-bottom: 30px;
+}
+
+#add-your-recipe form label {
+    font-weight: 600;
+}
+
+#add-your-recipe form button {
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+}
+
 /* ----------------------------------------Register and Login*/
 
 .register-cover {

@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
+<!-- Add your Recipe section -->
 <section  id="add-your-recipe" class="container-fluid">
     <div class="row">
         <div class="col-12 pl-0 pr-0">
@@ -9,12 +10,18 @@
             <h1>Your Recipe</h1>
         </div>
     </div>
+
+    <!-- Add a new recipe form -->
     <form action="{{url_for('submit_recipe')}}" method="POST"  class="container shadow">
+        <!-- Recipe title -->
         <div class="form-group">
             <label for="recipe_title">Recipe title <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="recipe_title" aria-describedby="recipe title"
             maxlength="80" required/>
-            <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters.</small>
+            <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters</small>
+        </div>
+        <!-- Select Category from the DB -->
+        <div class="form-group">
             <label for="category_name">Category</label>
             <select name="category_name" id="category_name" class="form-control" required >
                 <option selected disabled>Select Category
@@ -24,48 +31,59 @@
                 </option>
             </select>   
         </div>
+        <!-- Recipe Description -->
         <div class="form-group">
             <label for="description">Description <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="description" name="description"
                 aria-describedby="recipe description" maxlength="500"required>
-            <small class="form-text text-muted">Short, juicy description of the dish. Max 500 characters.</small>
+            <small class="form-text text-muted">Add the recipe description here. Max 500 characters</small>
         </div>
+        <!-- Recipe URL -->
         <div class="form-group">
             <label for="image_url">Image Url <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" name="image_url" id="image_url"
                 aria-describedby="recipe image" required >
             <small type="url" class="form-text text-muted">Picture of the dish. Use a valid URL</small>
         </div>
+        <!-- Total servings for each Recipe -->
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="servings">Servings <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="servings" name="servings"
-                        aria-describedby="Total servings" placeholder="e.g 4" maxlength="20" required>
+                        aria-describedby="Total servings" maxlength="20" required>
+                    <small class="form-text text-muted">e.g. 4</small>
                 </div>
             </div>
+            <!-- Total calories for each Recipe -->
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="calories">Calories <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="calories" name="calories"
-                        aria-describedby="Total calories" placeholder="e.g 250" maxlength="20" required>
+                        aria-describedby="Total calories" maxlength="20" required>
+                    <small class="form-text text-muted">e.g. 250</small>
                 </div>
             </div>
+            <!-- Preparation Time -->
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="prep-time">Prep Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="prep-time" name="prep-time"
-                        aria-describedby="Preparation time" placeholder="e.g 4 minutes" maxlength="20" required>
+                        aria-describedby="Preparation time" maxlength="30" required>
+                    <small class="form-text text-muted">e.g. 4 minutes</small>
                 </div>
             </div>
+            <!-- Cooking Time -->
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="cook-time">Cook Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="cook-time" name="cook-time"
-                        aria-describedby="Cooking time" placeholder="e.g 1 hour 15 minutes" maxlength="20" required>
+                        aria-describedby="Cooking time" maxlength="30" required>
+                    <small class="form-text text-muted">e.g. 1 hour 15 minutes</small>
                 </div>
             </div>
         </div>
+        <!-- Ingredients for each Recipe -->
         <div class="form-group">
             <div class="row">
                 <div class="col-12">
@@ -75,6 +93,7 @@
                 </div>
             </div>
         </div>
+        <!-- Instructions for each Recipe -->
         <div class="form-group">
             <div class="row">
                 <div class="col-12">
@@ -84,22 +103,25 @@
                 </div>
             </div>
         </div>
+        <!-- Tips for each Recipe -->
         <div class="form-group">
             <div class="row">
                 <div class="col-12">
                     <label for="tips">Tips <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="tips" name="tips" rows="3"
-                        placeholder="Put each tip in a new line." required></textarea>
+                    <textarea class="form-control" id="tips" name="tips" rows="3" required></textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>
         </div>
+        <!-- Submit Recipe Button  -->
         <div class="form-row">
             <div class="col-12">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
     </form>
+    <!-- End form -->
 </section>
+<!-- End Section -->
 
 {% endblock %}
