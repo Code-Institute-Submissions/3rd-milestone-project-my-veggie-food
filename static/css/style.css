@@ -256,6 +256,19 @@ footer {
     text-align: justify;
 }
 
+/* Recipe Buttons */
+
+#recipe-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#recipe-buttons a.btn.btn-info {
+    margin: 0 10px;
+}
+
 /* ----------------------------------------Register and Login*/
 
 .register-cover {

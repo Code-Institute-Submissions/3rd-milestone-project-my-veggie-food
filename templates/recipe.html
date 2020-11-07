@@ -48,6 +48,11 @@
             <h4>Tips:</h4>
             <p>{{ recipe.tips }}</p>
         </div>
+        <div id="recipe-buttons" class="col-12">
+            <a role="button" href="#" class="btn btn-success">Edit</a>
+            <a role="button" href="{{ url_for('add_recipes') }}" class="btn btn-info">Add</a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-targe="#delete">Delete</button>
+        </div>
     </div>
 </section>
 

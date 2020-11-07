@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block content %}
+
+<section  id="add-your-recipe" class="container-fluid">
+    <div class="row">
+        <div class="col-12 pl-0 pr-0">
+            <img src="/static/images/add_recipe_page.jpg" alt="Add your recipe" class="d-block w-100"/>
+        </div>
+        <div class="col-12">
+            <h1>Your Recipe</h1>
+        </div>
+    </div>
+    <form action="{{url_for('submit_recipe')}}" method="POST"  class="container shadow">
+        <div class="form-group">
+            <label for="recipe_title">Recipe title <span class="required-symbol">*</span></label>
+            <input type="text" class="form-control" id="recipe_title" aria-describedby="recipe title"
+            maxlength="80" required/>
+            <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters.</small>
+            <label for="category_name">Category</label>
+            <select name="category_name" id="category_name" class="form-control" required >
+                <option selected disabled>Select Category
+                    {% for category in categories %}
+                    <option value="{{category.category_name}}">{{category.category_name}}</option>
+                    {% endfor %}
+                </option>
+            </select>   
+        </div>
+        <div class="form-group">
+            <label for="description">Description <span class="required-symbol">*</span></label>
+            <input type="text" class="form-control" id="description" name="description"
+                aria-describedby="recipe description" maxlength="500"required>
+            <small class="form-text text-muted">Short, juicy description of the dish. Max 500 characters.</small>
+        </div>
+        <div class="form-group">
+            <label for="image_url">Image Url <span class="required-symbol">*</span></label>
+            <input type="text" class="form-control" name="image_url" id="image_url"
+                aria-describedby="recipe image" required >
+            <small type="url" class="form-text text-muted">Picture of the dish. Use a valid URL</small>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="servings">Servings <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="servings" name="servings"
+                        aria-describedby="Total servings" placeholder="e.g 4" maxlength="20" required>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="calories">Calories <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="calories" name="calories"
+                        aria-describedby="Total calories" placeholder="e.g 250" maxlength="20" required>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="prep-time">Prep Time <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="prep-time" name="prep-time"
+                        aria-describedby="Preparation time" placeholder="e.g 4 minutes" maxlength="20" required>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="cook-time">Cook Time <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="cook-time" name="cook-time"
+                        aria-describedby="Cooking time" placeholder="e.g 1 hour 15 minutes" maxlength="20" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-12">
+                    <label for="ingredients">Ingredients <span class="required-symbol">*</span></label>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required></textarea>
+                    <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-12">
+                    <label for="instructions">Instructions <span class="required-symbol">*</span></label>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="4" required></textarea>
+                    <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-12">
+                    <label for="tips">Tips <span class="required-symbol">*</span></label>
+                    <textarea class="form-control" id="tips" name="tips" rows="3"
+                        placeholder="Put each tip in a new line." required></textarea>
+                    <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+{% endblock %}
