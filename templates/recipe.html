@@ -61,7 +61,7 @@
         <div id="recipe-buttons" class="col-12">
             <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-success">Edit</a>
             <a role="button" href="{{ url_for('add_recipes') }}" class="btn btn-info">Add</a>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-targe="#delete">Delete</button>
+            <a type="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-danger">Delete</a>
         </div>
         {% endif %}
 
