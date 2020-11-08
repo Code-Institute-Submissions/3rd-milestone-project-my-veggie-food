@@ -20,22 +20,24 @@
      </div>
     {% else %}
     <!-- Here will appear all the recipes created in an organized and easy to access way for the user -->
-    <div class="container-fluid recipes-container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-xs-12">
-                <div class="card card-block shadow">
-                    <div class="card-body">
-                        {% for recipe in recipes %}
-                            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}" class="img-fluid rounded"/>
-                            <h3>{{ recipe.recipe_title }}</h3>
-                            <p>{{ recipe.description |truncate(80) }}</p>
-                            <a role="button" class="btn btn-success" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
-                        {% endfor %}
+        {% for recipe in recipes %}
+        <div class="container card mb-2 shadow">
+            <div class="card-body">
+                <div class="row h-100">
+                    <div class="col-md-4 col-sm-12 my-auto">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}" class="img-fluid rounded"/>
                     </div>
-                </div>
+                    <div class="col-md-8 col-sm-12 my-auto">
+                        <h3>{{ recipe.recipe_title }}</h3>
+                         <p>{{ recipe.description |truncate(200) }}</p>
+                         <div class="form-row">
+                            <a role="button" class="btn btn-success" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
+                         </div>
+                    </div>
+                </div>                   
             </div>
         </div>
-    </div>
+        {% endfor %}
     {% endif %}
 </section>
 
