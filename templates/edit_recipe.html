@@ -1,23 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<!-- Add your Recipe section -->
+<!-- Edit your Recipe section -->
 <section  id="add-your-recipe" class="container-fluid">
     <div class="row">
         <div class="col-12 pl-0 pr-0">
             <img src="/static/images/add_recipe_page.jpg" alt="Add your recipe" class="d-block w-100"/>
         </div>
         <div class="col-12">
-            <h1>Add Your Recipe</h1>
+            <h1>Edit Your Recipe</h1>
         </div>
     </div>
 
-    <!-- Add a new recipe form -->
-    <form action="{{url_for('add_recipes')}}" method="POST"  class="container shadow">
+    <!-- Edit a recipe form -->
+    <form action="{{url_for('edit_recipe', recipe_id=recipe._id)}}" method="POST" id="update_recipe" name="update_recipe" class="container shadow">
         <!-- Recipe title -->
         <div class="form-group">
             <label for="recipe_title">Recipe title <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="recipe_title" aria-describedby="recipe title"
-            name="recipe_title" maxlength="80" required/>
+            name="recipe_title" maxlength="80"  value="{{ recipe.recipe_title }}" required/>
             <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters</small>
         </div>
         <!-- Select Category from the DB -->
@@ -25,9 +25,13 @@
             <label for="category_name">Category</label>
             <select name="category_name" id="category_name" class="form-control" required >
                 <option selected disabled>Select Category
-                    {% for category in categories %}
+                {% for category in categories %}
+                    {% if category.category_name == recipe.category_name %}
+                    <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                    {% else %}
                     <option value="{{category.category_name}}">{{category.category_name}}</option>
-                    {% endfor %}
+                    {%endif%}
+                {% endfor %}
                 </option>
             </select>   
         </div>
@@ -35,14 +39,14 @@
         <div class="form-group">
             <label for="description">Description <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="description" name="description"
-                aria-describedby="recipe description" maxlength="500" required>
+                aria-describedby="recipe description" maxlength="500" value="{{ recipe.description }}" required>
             <small class="form-text text-muted">Add the recipe description here. Max 500 characters</small>
         </div>
         <!-- Recipe URL -->
         <div class="form-group">
             <label for="image_url">Image Url <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" name="image_url" id="image_url"
-                aria-describedby="recipe image" required >
+                aria-describedby="recipe image" value="{{ recipe.image_url }}" required >
             <small type="url" class="form-text text-muted">Picture of the dish. Use a valid URL</small>
         </div>
         <!-- Total servings for each Recipe -->
@@ -51,7 +55,7 @@
                 <div class="form-group">
                     <label for="servings">Servings <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="servings" name="servings"
-                        aria-describedby="Total servings" maxlength="20" required>
+                        aria-describedby="Total servings" maxlength="20" value="{{ recipe.servings }}" required>
                     <small class="form-text text-muted">e.g. 4</small>
                 </div>
             </div>
@@ -60,7 +64,7 @@
                 <div class="form-group">
                     <label for="calories">Calories <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="calories" name="calories"
-                        aria-describedby="Total calories" maxlength="20" required>
+                        aria-describedby="Total calories" maxlength="20" value="{{ recipe.calories }}" required>
                     <small class="form-text text-muted">e.g. 250</small>
                 </div>
             </div>
@@ -69,7 +73,7 @@
                 <div class="form-group">
                     <label for="prep_time">Prep Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="prep_time" name="prep_time"
-                        aria-describedby="Preparation time" maxlength="20" required>
+                        aria-describedby="Preparation time" maxlength="20" value="{{ recipe.prep_time }}" required>
                     <small class="form-text text-muted">e.g. 4 minutes</small>
                 </div>
             </div>
@@ -78,17 +82,18 @@
                 <div class="form-group">
                     <label for="cook_time">Cook Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="cook_time" name="cook_time"
-                        aria-describedby="Cooking time" maxlength="20" required>
+                        aria-describedby="Cooking time" maxlength="20" value="{{ recipe.cook_time }}" required>
                     <small class="form-text text-muted">e.g. 1 hour 15 minutes</small>
                 </div>
             </div>
         </div>
         <!-- Ingredients for each Recipe -->
+        
         <div class="form-group">
             <div class="row">
                 <div class="col-12">
                     <label for="ingredients">Ingredients <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required></textarea>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required>{% for ingredient in recipe.ingredients %}{{- ingredient + "\n" -}}{% endfor %}</textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>
@@ -98,7 +103,8 @@
             <div class="row">
                 <div class="col-12">
                     <label for="instructions">Instructions <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="instructions" name="instructions" rows="4" required></textarea>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="4" required>{% for instruction in recipe.instructions %}{{- instruction + "\n" -}}{%endfor%}
+                    </textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>
@@ -108,7 +114,7 @@
             <div class="row">
                 <div class="col-12">
                     <label for="tips">Tips <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="tips" name="tips" rows="3" required></textarea>
+                    <textarea class="form-control" id="tips" name="tips" rows="3" required>{{ recipe.tips }}</textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>

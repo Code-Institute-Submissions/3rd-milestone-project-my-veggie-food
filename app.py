@@ -157,6 +157,35 @@ def add_recipes():
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
 
 
+@app.route('/edit_recipe/<recipe_id>', methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        ingredients = request.form.get("ingredients").split("\n")
+        instructions = request.form.get("instructions").split("\n")
+
+        edit_recipe = {
+            "recipe_title": request.form.get("recipe_title"),
+            "category_name": request.form.get("category_name"),
+            "description": request.form.get("description"),
+            "image_url": request.form.get("image_url"),
+            "servings": request.form.get("servings"),
+            "calories": request.form.get("calories"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "ingredients": ingredients,
+            "instructions": instructions,
+            "tips": request.form.get("tips"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id":ObjectId(recipe_id)}, edit_recipe)
+        flash("Recipe Successfully Updated")
+        return redirect(url_for("get_recipe", recipe_id=recipe_id))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find()
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, page_title="Edit your recipe")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
