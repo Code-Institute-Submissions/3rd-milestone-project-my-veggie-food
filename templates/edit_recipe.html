@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="recipe_title">Recipe title <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="recipe_title" aria-describedby="recipe title"
-            name="recipe_title" maxlength="80"  value="{{ recipe.recipe_title }}" required/>
+            name="recipe_title" maxlength="80"  value="{{ recipe.recipe_title }}" autocomplete="off" required/>
             <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters</small>
         </div>
         <!-- Select Category from the DB -->
@@ -39,14 +39,14 @@
         <div class="form-group">
             <label for="description">Description <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="description" name="description"
-                aria-describedby="recipe description" maxlength="500" value="{{ recipe.description }}" required>
+                aria-describedby="recipe description" maxlength="500" value="{{ recipe.description }}" autocomplete="off" required>
             <small class="form-text text-muted">Add the recipe description here. Max 500 characters</small>
         </div>
         <!-- Recipe URL -->
         <div class="form-group">
             <label for="image_url">Image Url <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" name="image_url" id="image_url"
-                aria-describedby="recipe image" value="{{ recipe.image_url }}" required >
+                aria-describedby="recipe image" value="{{ recipe.image_url }}" autocomplete="off" required >
             <small type="url" class="form-text text-muted">Picture of the dish. Use a valid URL</small>
         </div>
         <!-- Total servings for each Recipe -->
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label for="servings">Servings <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="servings" name="servings"
-                        aria-describedby="Total servings" maxlength="20" value="{{ recipe.servings }}" required>
+                        aria-describedby="Total servings" maxlength="20" value="{{ recipe.servings }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 4</small>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <label for="calories">Calories <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="calories" name="calories"
-                        aria-describedby="Total calories" maxlength="20" value="{{ recipe.calories }}" required>
+                        aria-describedby="Total calories" maxlength="20" value="{{ recipe.calories }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 250</small>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <label for="prep_time">Prep Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="prep_time" name="prep_time"
-                        aria-describedby="Preparation time" maxlength="20" value="{{ recipe.prep_time }}" required>
+                        aria-describedby="Preparation time" maxlength="20" value="{{ recipe.prep_time }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 4 minutes</small>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <label for="cook_time">Cook Time <span class="required-symbol">*</span></label>
                     <input type="text" class="form-control" id="cook_time" name="cook_time"
-                        aria-describedby="Cooking time" maxlength="20" value="{{ recipe.cook_time }}" required>
+                        aria-describedby="Cooking time" maxlength="20" value="{{ recipe.cook_time }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 1 hour 15 minutes</small>
                 </div>
             </div>

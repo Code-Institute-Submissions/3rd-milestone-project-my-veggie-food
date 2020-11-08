@@ -129,6 +129,20 @@ def get_recipe(recipe_id):
     return render_template ("recipe.html", recipe=recipe, page_title="Recipe")
 
 
+# Search Recipe Functionality
+@app.route('/search', methods=["GET", "POST"])
+def search():
+    mongo.db.recipes.create_index([('$**', 'text')])
+    query = request.form.get("query")
+    result = mongo.db.recipes.find({"$text": {"$search": query}}).limit(10)
+    results = mongo.db.recipes.find({"$text": {"$search": query}}).count()
+    if results > 0:
+        return render_template("search.html", result=result, query=query, page_title="Your results")
+    else:
+        return render_template("search.html", result=result, query=query, message="No results found. Please try again", page_title="Upss, no results")
+    
+
+# Add Recipe Functionality
 @app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
     if request.method == "POST":
@@ -157,6 +171,7 @@ def add_recipes():
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
 
 
+# Edit Recipe Functionality
 @app.route('/edit_recipe/<recipe_id>', methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -186,6 +201,7 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=recipe, categories=categories, page_title="Edit your recipe")
 
 
+# Delete Recipe Functionality
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})

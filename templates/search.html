@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- Page cover -->
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-12 pl-0 pr-0">
+            <img src="static/images/search_page.jpg" alt="Contact Us" class="d-block w-100"/>
+        </div>
+        <div class="col-12">
+            <h1 class="search-title">Search Results <i class="fas fa-search"></i></h1>
+            <hr>
+        </div>
+    </div>
+</section>
+
+<!-- Results container -->
+{% for recipe in result %}
+<section id="search_result-recipes" class="container card mb-4 shadow">
+    <div class="card-body">
+        <div class="row h-100">
+            <div class="col-md-4 col-sm-12 my-auto">
+                <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}" class="img-fluid rounded"/>
+            </div>
+            <div class="col-md-8 col-sm-12 my-auto">
+                <h3>{{ recipe.recipe_title }}</h3>
+                 <p>{{ recipe.description |truncate(200) }}</p>
+                 <div class="form-row">
+                    <a role="button" class="btn btn-info" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{% if result.count() == 0 %}
+<!-- No Results Found -->
+<section id="no-results">
+    <div class="col-12">
+        <p class="message-no-found">{{ message }}</p>
+        <img src="static/images/002-veggie_friend.png" class="img-fluid" alt="Upss, no results"/>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
