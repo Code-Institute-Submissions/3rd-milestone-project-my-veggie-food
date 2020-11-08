@@ -90,6 +90,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Logout
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -128,15 +129,32 @@ def get_recipe(recipe_id):
     return render_template ("recipe.html", recipe=recipe, page_title="Recipe")
 
 
-@app.route('/add_recipes')
+@app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
+    if request.method == "POST":
+        ingredients = request.form.get("ingredients").split("\n")
+        instructions = request.form.get("instructions").split("\n")
+
+        recipe = {
+            "recipe_title": request.form.get("recipe_title"),
+            "category_name": request.form.get("category_name"),
+            "description": request.form.get("description"),
+            "image_url": request.form.get("image_url"),
+            "servings": request.form.get("servings"),
+            "calories": request.form.get("calories"),
+            "prep_time": request.form.get("prep_time"),
+            "cook_time": request.form.get("cook_time"),
+            "ingredients": ingredients,
+            "instructions": instructions,
+            "tips": request.form.get("tips"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes", category='all'))
+
     categories = mongo.db.categories.find()
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
-
-
-@app.route('/submit_recipe', methods=["POST"])
-def submit_recipe():
-    return redirect(url_for("recipe.html"))
 
 
 if __name__ == '__main__':

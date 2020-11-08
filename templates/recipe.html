@@ -30,7 +30,10 @@
             <h4>Ingredients:</h4>
             <ul class="fa-ul">
             {% for ingredient in recipe.ingredients %}
+            <!-- To avoid empty lines into the ingredients -->
+                {% if ingredient | truncate | length > 1 %}
                 <li><span class="fa-li"><i class="fas fa-pepper-hot"></i></span>{{ ingredient }}</li>
+                {% endif %}
             {% endfor %}
             </ul>
         </div>
@@ -38,15 +41,21 @@
         <div id="instructions-container" class="col-md-8 col-xs-12">
             <h4>Instructions:</h4>
             <ul class="fa-ul">
-                {% for instruction in recipe.instructions %}
+            {% for instruction in recipe.instructions %}
+                <!-- To avoid empty lines into the instructions -->
+                {% if instruction | truncate | length > 1 %}
                     <li><span class="fa-li"><i class="fas fa-leaf"></i></span>{{ instruction }}</li>
-                {% endfor %}
+                {% endif %}
+            {% endfor %}
             </ul>
         </div>
         <!-- Tips -->
         <div id="tips-container"class="col-12">
             <h4>Tips:</h4>
             <p>{{ recipe.tips }}</p>
+        </div>
+        <div id="user-author" class="col-12">
+            <p><strong>Created by: </strong>{{ recipe.created_by }}</p>
         </div>
         <div id="recipe-buttons" class="col-12">
             <a role="button" href="#" class="btn btn-success">Edit</a>

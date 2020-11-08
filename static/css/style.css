@@ -166,13 +166,15 @@ footer {
 
 #recipe-container .card-body h3 {
     text-align: center;
-    color: #343a40;
+    color: #504537;
     padding: 10px 0;
+    font-size: 40px;
 }
 
 #recipe-container .card-body p {
     text-align: justify;
-    padding: 10px 15px;
+    padding: 20px 15px;
+    font-size: 20px;
 }
 
 #recipe-container .card-body a {
@@ -180,6 +182,7 @@ footer {
     font-size: 20px;
     display: block;
     margin: 0 auto;
+    border: 20px 0;
 }
 
 /*--------------------------------------------Recipe Page*/
@@ -258,6 +261,13 @@ footer {
     font-style: italic;
     font-weight: 500;
     text-align: justify;
+}
+
+#user-author p {
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px 0;
 }
 
 /* Recipe Buttons */
@@ -481,5 +491,22 @@ footer {
      height: 3px;
      border: 0;
      background-color: #ec6a04;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #recipe-container .card-body h3 {
+        text-align: center;
+        color: #504537;
+        padding: 10px 0;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #recipe-container .card-body p {
+        text-align: justify;
+        padding: 20px 10px;
+        font-size: 16px;
     }
 }

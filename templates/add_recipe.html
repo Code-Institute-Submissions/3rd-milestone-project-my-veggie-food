@@ -12,12 +12,12 @@
     </div>
 
     <!-- Add a new recipe form -->
-    <form action="{{url_for('submit_recipe')}}" method="POST"  class="container shadow">
+    <form action="{{url_for('add_recipes')}}" method="POST"  class="container shadow">
         <!-- Recipe title -->
         <div class="form-group">
             <label for="recipe_title">Recipe title <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="recipe_title" aria-describedby="recipe title"
-            maxlength="80" required/>
+            name="recipe_title" maxlength="80" required/>
             <small class="form-text text-muted">e.g. Strawberry Smoothie. Max 80 characters</small>
         </div>
         <!-- Select Category from the DB -->
@@ -35,7 +35,7 @@
         <div class="form-group">
             <label for="description">Description <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="description" name="description"
-                aria-describedby="recipe description" maxlength="500"required>
+                aria-describedby="recipe description" maxlength="500" required>
             <small class="form-text text-muted">Add the recipe description here. Max 500 characters</small>
         </div>
         <!-- Recipe URL -->
@@ -67,18 +67,18 @@
             <!-- Preparation Time -->
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
-                    <label for="prep-time">Prep Time <span class="required-symbol">*</span></label>
-                    <input type="text" class="form-control" id="prep-time" name="prep-time"
-                        aria-describedby="Preparation time" maxlength="30" required>
+                    <label for="prep_time">Prep Time <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="prep_time" name="prep_time"
+                        aria-describedby="Preparation time" maxlength="20" required>
                     <small class="form-text text-muted">e.g. 4 minutes</small>
                 </div>
             </div>
             <!-- Cooking Time -->
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
-                    <label for="cook-time">Cook Time <span class="required-symbol">*</span></label>
-                    <input type="text" class="form-control" id="cook-time" name="cook-time"
-                        aria-describedby="Cooking time" maxlength="30" required>
+                    <label for="cook_time">Cook Time <span class="required-symbol">*</span></label>
+                    <input type="text" class="form-control" id="cook_time" name="cook_time"
+                        aria-describedby="Cooking time" maxlength="20" required>
                     <small class="form-text text-muted">e.g. 1 hour 15 minutes</small>
                 </div>
             </div>
