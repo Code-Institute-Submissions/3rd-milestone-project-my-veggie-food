@@ -13,4 +13,45 @@
     </div>
 </section>
 
+<section id="user-recipes" class="container-fluid">
+    {% if recipes |length > 0 %}
+    <div class="row">
+        <div class="col-12">
+            <h2>All Your Recipes</h2>
+        </div>
+        {% for rec in recipes %}
+        <div class="container card mb-4 shadow">
+            <div class="card-body">
+                <div class="row h-100">
+                    <div class="col-md-4 col-sm-12 my-auto">
+                        <img src="{{ rec.image_url }}" alt="{{ rec.recipe_title }}" class="img-fluid rounded"/>
+                    </div>
+                    <div class="col-md-8 col-sm-12 my-auto">
+                        <h3>{{ rec.recipe_title }}</h3>
+                         <p>{{ rec.description |truncate(200) }}</p>
+                         <div class="form-row">
+                            <a role="button" class="btn btn-secondary" href="{{url_for('get_recipe', recipe_id=rec._id, category=rec.category_name)}}">Read More</a>
+                         </div>
+                    </div>
+                </div>                   
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-8 col-ms-12 my-auto">
+            <h2>You don't have any recipe at the moment</h2>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <img src="/static/images/001-veggie_friend.png" class="img-fluid no-recipes-img" alt="No recipes"/>
+        </div>
+    </div>
+    <div class="form-row btn-special-add-recipe">
+        <a role="button" href="{{ url_for('add_recipes') }}" class="btn btn-lg btn-success btn-special-add-recipe">Add my first recipe <i class="fas fa-plus-circle"></i></a>
+    </div>
+    
+    {% endif %}
+</section>
+
 {% endblock %}

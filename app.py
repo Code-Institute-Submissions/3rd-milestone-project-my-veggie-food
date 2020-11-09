@@ -82,9 +82,15 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    recipes = mongo.db.recipes.find({"created_by": username})
+
+    user_recipes = []
+    for rc in recipes:
+        user_recipes.append(rc)
+        print(user_recipes)
 
     if session["user"]:
-        return render_template("profile.html", username=username, page_title="My Profile")
+        return render_template("profile.html", username=username, recipes=user_recipes, page_title="My Profile")
 
     return redirect(url_for("login"))
 
@@ -163,9 +169,8 @@ def add_recipes():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes", category='all'))
-
+    
     categories = mongo.db.categories.find()
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
 
@@ -192,9 +197,8 @@ def edit_recipe(recipe_id):
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id":ObjectId(recipe_id)}, edit_recipe)
-        flash("Recipe Successfully Updated")
         return redirect(url_for("get_recipe", recipe_id=recipe_id))
-
+    
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
     return render_template("edit_recipe.html", recipe=recipe, categories=categories, page_title="Edit your recipe")
@@ -203,9 +207,11 @@ def edit_recipe(recipe_id):
 # Delete Recipe Functionality
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    recipes = mongo.db.recipes.find({"created_by": username})
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Recipe Successfully Deleted")
-    return redirect(url_for("get_recipes", category='all'))
+    return redirect(url_for("profile",  username=username, recipes=recipes, page_title="My Profile"))
 
 
 if __name__ == '__main__':

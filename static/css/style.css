@@ -438,6 +438,44 @@ footer {
     color: #5e695e;
 }
 
+#user-recipes h2 {
+    font-size: 45px;
+    text-align: center;
+    color: #1a4c7d;
+    padding: 50px 0;
+}
+
+#user-recipes h3 {
+    font-size: 40px;
+    text-align: center;
+    color: #39434c;
+    padding: 20px 15px;
+}
+
+#user-recipes p {
+    text-align: justify;
+    padding: 20px 15px;
+    font-size: 20px;
+}
+
+#user-recipes a {
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    border: 20px 0;
+}
+
+.no-recipes-img {
+    display: block;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.btn-special-add-recipe {
+    padding: 30px 0;
+}
+
 /* ----------------------------------------Contact Page */
 
 #contactIntro {
