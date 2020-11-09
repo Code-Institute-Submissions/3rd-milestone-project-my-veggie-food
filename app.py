@@ -16,6 +16,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Home Page
 @app.route('/')
 def index():
     return render_template('index.html', page_title='Home')
@@ -61,7 +62,6 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
                     return redirect(url_for(
                         "profile", username=session["user"]))
             else:
