@@ -118,10 +118,10 @@ def get_recipes(category):
         recipes = mongo.db.recipes.find()
     elif category == "main":
         recipes = mongo.db.recipes.find({"category_name": "Main"})
-    elif category == "desserts":
-        recipes = mongo.db.recipes.find({"category_name": "Desserts"})
-    elif category == "snacks":
-        recipes = mongo.db.recipes.find({"category_name": "Snacks"})
+    elif category == "dessert":
+        recipes = mongo.db.recipes.find({"category_name": "Dessert"})
+    elif category == "snack":
+        recipes = mongo.db.recipes.find({"category_name": "Snack"})
     elif category == "smoothies":
         recipes = mongo.db.recipes.find({"category_name": "Smoothies"})
     return render_template("recipes.html", recipes=recipes, category=category, page_title=category)
