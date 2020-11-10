@@ -11,6 +11,8 @@ This website aims to be a platform for people who want to start this new lifesty
 showing delicious, easy and nutritious recipes, and best of all, with contribution from
 the community.
 
+<a href="https://my-veggie-food-2020recipes.herokuapp.com/">Click here to view the project live</a>
+
 ## UX
 ### User Stories
 
