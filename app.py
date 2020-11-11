@@ -151,8 +151,8 @@ def search():
 @app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
     if request.method == "POST":
-        ingredients = request.form.get("ingredients").split("\n")
-        instructions = request.form.get("instructions").split("\n")
+        ingredients = request.form.get("ingredients").strip().split("\n")
+        instructions = request.form.get("instructions").strip().split("\n")
 
         recipe = {
             "recipe_title": request.form.get("recipe_title"),
@@ -179,8 +179,8 @@ def add_recipes():
 @app.route('/edit_recipe/<recipe_id>', methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        ingredients = request.form.get("ingredients").split("\n")
-        instructions = request.form.get("instructions").split("\n")
+        ingredients = request.form.get("ingredients").strip().split("\n")
+        instructions = request.form.get("instructions").strip().split("\n")
 
         edit_recipe = {
             "recipe_title": request.form.get("recipe_title"),
