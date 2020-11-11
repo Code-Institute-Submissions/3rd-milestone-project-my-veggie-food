@@ -32,7 +32,7 @@
             <div class="col-12">
                 <h2>Contact Form</h2>
                 <br>
-                <form>
+                <form onsubmit="return sendMail(this);">
                     <label for="name">Your Name <span class="required-symbol">*</span></label>
                     <input type="text" name="name" id="name" class="form-control" required/>
                     <br>
@@ -52,5 +52,28 @@
         </div>
     </div>
 </section>
+
+
+<!-- Submit Button Modal -->
+
+<div class="modal fade" id="messageSent" role="dialog" aria-describedby="messageSent" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4> Thank you so much!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="message-sent-text"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" id="btn-close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
