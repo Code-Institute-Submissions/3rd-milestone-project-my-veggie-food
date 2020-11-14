@@ -39,8 +39,8 @@
         <div class="form-group">
             <label for="description">Description <span class="required-symbol">*</span></label>
             <input type="text" class="form-control" id="description" name="description"
-                aria-describedby="recipe description" maxlength="500" value="{{ recipe.description }}" autocomplete="off" required>
-            <small class="form-text text-muted">Add the recipe description here. Max 500 characters</small>
+                aria-describedby="recipe description" maxlength="300" value="{{ recipe.description }}" autocomplete="off" required>
+            <small class="form-text text-muted">Add the recipe description here. Max 300 characters</small>
         </div>
         <!-- Recipe URL -->
         <div class="form-group">
@@ -54,8 +54,8 @@
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="servings">Servings <span class="required-symbol">*</span></label>
-                    <input type="text" class="form-control" id="servings" name="servings"
-                        aria-describedby="Total servings" maxlength="20" value="{{ recipe.servings }}" autocomplete="off" required>
+                    <input type="number" class="form-control" id="servings" name="servings"
+                        aria-describedby="Total servings" min="1" max="99" value="{{ recipe.servings }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 4</small>
                 </div>
             </div>
@@ -63,8 +63,8 @@
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="calories">Calories <span class="required-symbol">*</span></label>
-                    <input type="text" class="form-control" id="calories" name="calories"
-                        aria-describedby="Total calories" maxlength="20" value="{{ recipe.calories }}" autocomplete="off" required>
+                    <input type="number" class="form-control" id="calories" name="calories"
+                        aria-describedby="Total calories" min="1" max="2000" value="{{ recipe.calories }}" autocomplete="off" required>
                     <small class="form-text text-muted">e.g. 250</small>
                 </div>
             </div>
@@ -93,7 +93,7 @@
             <div class="row">
                 <div class="col-12">
                     <label for="ingredients">Ingredients <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="ingredients" name="ingredients" rows="4" required>{% for ingredient in recipe.ingredients %}{{- ingredient + "\n" -}}{% endfor %}</textarea>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="4" maxlength="3000" required>{% for ingredient in recipe.ingredients %}{{- ingredient + "\n" -}}{% endfor %}</textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-12">
                     <label for="instructions">Instructions <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="instructions" name="instructions" rows="4" required>{% for instruction in recipe.instructions %}{{- instruction + "\n" -}}{%endfor%}
+                    <textarea class="form-control" id="instructions" name="instructions" rows="4" maxlength="3000" required>{% for instruction in recipe.instructions %}{{- instruction + "\n" -}}{%endfor%}
                     </textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
@@ -114,11 +114,21 @@
             <div class="row">
                 <div class="col-12">
                     <label for="tips">Tips <span class="required-symbol">*</span></label>
-                    <textarea class="form-control" id="tips" name="tips" rows="3" required>{{ recipe.tips }}</textarea>
+                    <textarea class="form-control" id="tips" name="tips" rows="3" maxlength="350" required>{{ recipe.tips }}</textarea>
                     <small class="form-text text-muted">Each step in it's own line. No empty lines.</small>
                 </div>
             </div>
         </div>
+        <!-- Error messages from backend validation  -->
+        {% if error_list|length > 1 %}
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">There are some errors in your submission</h4>
+            {% for error in error_list %}
+            <p>{{ error }}</p>
+            <hr>
+            {% endfor %}
+          </div>
+          {% endif %}
         <!-- Submit Recipe Button  -->
         <div class="form-row">
             <div class="col-12">

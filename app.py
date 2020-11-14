@@ -16,6 +16,94 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def validate_form(form):
+    # variable initialization for min-max values
+    max_title = 80
+    max_description = 300
+    max_ingredients = 500
+    min_servings = 1
+    max_servings = 99
+    min_calories = 1
+    max_calories = 2000
+    max_prep_time = 20
+    max_cooking_time = 20
+    max_ingredients = 3000
+    max_instructions = 3000
+    max_tips = 350
+    
+
+    error_list = []
+
+
+    if not form['recipe_title'] or len(form['recipe_title']) > max_title:
+            error_list.append(
+                'Title must not be empty or more than {} characters!'
+                .format(max_title)
+            )
+    if not form['description'] or len(form['description']) > max_description:
+        error_list.append(
+            'Description must not be empty or more than {} characters!'
+            .format(max_description)
+        )
+    if not form['prep_time'] or len(form['prep_time']) > max_prep_time:
+        error_list.append(
+            'Preparation time must not be empty or more than {} characters!'
+            .format(max_prep_time)
+        )
+        
+    if not form['cook_time'] or len(form['cook_time']) > max_cooking_time:
+        error_list.append(
+            'Cooking time must not be empty or more than {} characters!'
+            .format(max_cooking_time)
+        )
+        
+    if not form['ingredients'] or len(form['ingredients']) > max_ingredients:
+        error_list.append(
+            'Ingredients must not be empty or more than {} characters!'
+            .format(max_ingredients)
+        )
+        
+    if not form['instructions'] or len(form['instructions']) > max_instructions:
+        error_list.append(
+            'Instructions must not be empty or more than {} characters!'
+            .format(max_instructions)
+        )
+    if not form['tips'] or len(form['tips']) > max_tips:
+        error_list.append(
+            'Tips must not be empty or more than {} characters!'
+            .format(max_tips)
+        )
+    try:
+        if not form['servings'] or int(form['servings']) < min_servings:
+            error_list.append(
+                'Servings must not be empty or less than {}!'
+                .format(min_servings)
+            )
+        elif int(form['servings']) > max_servings:
+            error_list.append(
+                'Servings must not be more than {}!'
+                .format(max_servings)
+            )
+    except ValueError:
+        error_list.append('Servings is not a number!')
+    try:
+        if not form['calories'] or int(form['calories']) < min_calories:
+            error_list.append(
+                'Calories must not be empty or less than {}!'
+                .format(min_calories)
+            )
+        elif int(form['calories']) > max_calories:
+            error_list.append(
+                'Calories must not more than {}!'
+                .format(max_calories)
+            )
+    except ValueError:
+        error_list.append('Calories is not a number!')
+
+    return error_list
+
+
+
 # Home Page
 @app.route('/')
 def index():
@@ -151,25 +239,32 @@ def search():
 @app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
     if request.method == "POST":
-        ingredients = request.form.get("ingredients").strip().split("\n")
-        instructions = request.form.get("instructions").strip().split("\n")
 
-        recipe = {
-            "recipe_title": request.form.get("recipe_title"),
-            "category_name": request.form.get("category_name"),
-            "description": request.form.get("description"),
-            "image_url": request.form.get("image_url"),
-            "servings": request.form.get("servings"),
-            "calories": request.form.get("calories"),
-            "prep_time": request.form.get("prep_time"),
-            "cook_time": request.form.get("cook_time"),
-            "ingredients": ingredients,
-            "instructions": instructions,
-            "tips": request.form.get("tips"),
-            "created_by": session["user"]
-        }
-        mongo.db.recipes.insert_one(recipe)
-        return redirect(url_for("get_recipes", category='all'))
+        error_list = validate_form(request.form)
+        if len(error_list) == 0:
+            ingredients = request.form.get("ingredients").strip().split("\n")
+            instructions = request.form.get("instructions").strip().split("\n")
+
+            recipe = {
+                "recipe_title": request.form.get("recipe_title"),
+                "category_name": request.form.get("category_name"),
+                "description": request.form.get("description"),
+                "image_url": request.form.get("image_url"),
+                "servings": request.form.get("servings"),
+                "calories": request.form.get("calories"),
+                "prep_time": request.form.get("prep_time"),
+                "cook_time": request.form.get("cook_time"),
+                "ingredients": ingredients,
+                "instructions": instructions,
+                "tips": request.form.get("tips"),
+                "created_by": session["user"]
+            }
+            mongo.db.recipes.insert_one(recipe)
+            return redirect(url_for("get_recipes", category='all'))
+        else:
+            categories = mongo.db.categories.find()
+            return render_template("add_recipe.html", categories=categories, error_list=error_list, page_title="Add your recipe")
+            
     
     categories = mongo.db.categories.find()
     return render_template("add_recipe.html", categories=categories, page_title="Add your recipe")
@@ -179,25 +274,33 @@ def add_recipes():
 @app.route('/edit_recipe/<recipe_id>', methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        ingredients = request.form.get("ingredients").strip().split("\n")
-        instructions = request.form.get("instructions").strip().split("\n")
+        error_list = validate_form(request.form)
 
-        edit_recipe = {
-            "recipe_title": request.form.get("recipe_title"),
-            "category_name": request.form.get("category_name"),
-            "description": request.form.get("description"),
-            "image_url": request.form.get("image_url"),
-            "servings": request.form.get("servings"),
-            "calories": request.form.get("calories"),
-            "prep_time": request.form.get("prep_time"),
-            "cook_time": request.form.get("cook_time"),
-            "ingredients": ingredients,
-            "instructions": instructions,
-            "tips": request.form.get("tips"),
-            "created_by": session["user"]
-        }
-        mongo.db.recipes.update({"_id":ObjectId(recipe_id)}, edit_recipe)
-        return redirect(url_for("get_recipe", recipe_id=recipe_id))
+        if len(error_list) == 0:
+
+            ingredients = request.form.get("ingredients").strip().split("\n")
+            instructions = request.form.get("instructions").strip().split("\n")
+
+            edit_recipe = {
+                "recipe_title": request.form.get("recipe_title"),
+                "category_name": request.form.get("category_name"),
+                "description": request.form.get("description"),
+                "image_url": request.form.get("image_url"),
+                "servings": request.form.get("servings"),
+                "calories": request.form.get("calories"),
+                "prep_time": request.form.get("prep_time"),
+                "cook_time": request.form.get("cook_time"),
+                "ingredients": ingredients,
+                "instructions": instructions,
+                "tips": request.form.get("tips"),
+                "created_by": session["user"]
+            }
+            mongo.db.recipes.update({"_id":ObjectId(recipe_id)}, edit_recipe)
+            return redirect(url_for("get_recipe", recipe_id=recipe_id))
+        else:
+            recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+            categories = mongo.db.categories.find()
+            return render_template("edit_recipe.html", recipe=recipe, categories=categories, error_list=error_list, page_title="Edit your recipe")
     
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
