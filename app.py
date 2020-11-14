@@ -175,7 +175,7 @@ def profile(username):
     user_recipes = []
     for rc in recipes:
         user_recipes.append(rc)
-        print(user_recipes)
+
 
     if session["user"]:
         return render_template("profile.html", username=username, recipes=user_recipes, page_title="My Profile")
@@ -250,8 +250,8 @@ def add_recipes():
                 "category_name": request.form.get("category_name"),
                 "description": request.form.get("description"),
                 "image_url": request.form.get("image_url"),
-                "servings": request.form.get("servings"),
-                "calories": request.form.get("calories"),
+                "servings": int(request.form.get("servings")),
+                "calories": int(request.form.get("calories")),
                 "prep_time": request.form.get("prep_time"),
                 "cook_time": request.form.get("cook_time"),
                 "ingredients": ingredients,
@@ -286,8 +286,8 @@ def edit_recipe(recipe_id):
                 "category_name": request.form.get("category_name"),
                 "description": request.form.get("description"),
                 "image_url": request.form.get("image_url"),
-                "servings": request.form.get("servings"),
-                "calories": request.form.get("calories"),
+                "servings": int(request.form.get("servings")),
+                "calories": int(request.form.get("calories")),
                 "prep_time": request.form.get("prep_time"),
                 "cook_time": request.form.get("cook_time"),
                 "ingredients": ingredients,
