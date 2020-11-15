@@ -52,9 +52,74 @@
 </section>
 
 <!-- Featured Recipes-->
-<section>
-    <h1>Featured Recipes</h1>
-    <hr>
+<section id="featured-recipes" class="container-fluid">
+    <div class="col-12">
+        <h1>Featured Recipes</h1>
+        <hr>
+    </div>
+    <div class="row">
+
+        <!-- First Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5f92f316ce6c2b2850b60cb4') }}">
+                <div class="square-container"
+                    style="background-image: url('https://i2.wp.com/www.primaverakitchen.com/wp-content/uploads/2019/08/Low-carb-Raspberry-Smoothie-Primavera-Kitchen-4.jpg');">
+                    <div class="overlay">Raspberry Smoothie with Apricots</div>
+                </div>
+            </a>
+        </div>
+    
+        <!-- Second Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5fb11bccaed0da96f451ff2d') }}">
+                <div class="square-container"
+                    style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefoodcafe.com%2Fwp-content%2Fuploads%2F2018%2F04%2FMozzarella-Sticks-5-700x467.jpg&f=1&nofb=1');">
+                    <div class="overlay">Mozzarella Sticks with Spicy Dipping Sauce</div>
+                </div>
+            </a>
+        </div>
+    
+        <!-- Third Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5fa9da0ecaf97c626adbf6f3') }}">
+                <div class="square-container"
+                    style="background-image: url('https://www.makingthymeforhealth.com/wp-content/uploads/2017/10/Mushroom-Ramen-5.jpg');">
+                    <div class="overlay">Shiitake Mushroom Ramen</div>
+                </div>
+            </a>
+        </div>
+    
+        <!-- Fourth Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5faa7a58cf7387d3d0c6320b') }}">
+                <div class="square-container"
+                    style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flifemadesimplebakes.com%2Fwp-content%2Fuploads%2F2014%2F10%2FSalted-Caramel-Bittersweet-Chocolate-Tart.jpg&f=1&nofb=1');">
+                    <div class="overlay">Bitter chocolate and salted caramel torte</div>
+                </div>
+            </a>
+        </div>
+   
+        <!-- Fifth Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5faa7630cf7387d3d0c63209') }}">
+                <div class="square-container"
+                    style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F2d%2F60%2Fc0%2F2d60c09109aa7f3cf2a94ced1f4e7e37.jpg&f=1&nofb=1');">
+                    <div class="overlay">Carrot, halloumi and dill balls</div>
+                </div>
+            </a>
+        </div>
+    
+        <!-- Sixth Recipe -->
+        <div class="col-sm-6 col-md-4">
+            <a href="{{ url_for( 'get_recipe', recipe_id='5fb12907aed0da96f451ff36') }}">
+                <div class="square-container"
+                    style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.justinepattison.com%2Fwp-content%2Fuploads%2F2017%2F03%2Faubergine-parmigiana_2423-scaled.jpg&f=1&nofb=1');">
+                    <div class="overlay">Rich Aubergine Parmigiana</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
 </section>
 
 <!-- Social Media-->
