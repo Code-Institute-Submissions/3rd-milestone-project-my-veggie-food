@@ -659,17 +659,6 @@ footer {
         margin-left: auto;
         margin-right: auto;
         display: block;
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-    }
-}
-
-@media screen and (max-width: 920px) {
-    .img-style {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
         width: 250px;
         height: 250px;
         object-fit: cover;
