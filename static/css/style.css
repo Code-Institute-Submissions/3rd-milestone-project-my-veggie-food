@@ -654,13 +654,13 @@ footer {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
     .img-style {
         margin-left: auto;
         margin-right: auto;
         display: block;
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
         object-fit: cover;
     }
 }
