@@ -64,8 +64,11 @@ or suggestions.
 ### Design Process
 
 1. **Strategy Plane:** My goal in creating this project was to provide a platform for users to create, read, update and delete their recipes, in order to comply with CRUD, in an easy and intuitive way.
+
 2. **Scope:** For the users, I wanted to offer a platform that will provide relevant information, in this case vegetarian recipes, since it is a new style of feeding and it is gaining more followers every day. For this, I created a welcome page with quick access to the desired information, through a section with recipes, another section giving reasons to be vegetarian and that invites you to join the website, among other features.
+
 3. **Structure:** The website has a navigation bar with different links, it also has the logo of the website and a search bar in it, and a footer that has the copyright of the same website, these being the basic structures of the platform. The website has a home page, whose purpose is to welcome users, provide quick information, and invite them to register to create an account. In addition the platform has a recipes page divided into different categories, the recipes are displayed on cards with a brief description, and pressing the button that invites you to read more information, redirects you to a page that displays each recipe, providing relevant information such as ingredients, instructions, etc. The other pages are for registration, to login to the account created by a user, which upon login will appear 3 new links on the navigation bar, which are Profile, add recipes and logout. The user's profile welcomes him/her and shows the recipes he/she has, and if he/she is a new user and has no recipes published, the profile shows a special message inviting the user to create his/her first recipe. The other pages are the contact page, which allows users to contact the website directly, and a search results page.
+
 4. **Skeleton:**
 - Home Page wireframe.
     - <a href="https://github.com/cotebarrientos/3rd-milestone-project-my-veggie-food/blob/master/static/wireframes/001-desktop-home_page.png" target="_blank">Desktop</a>
@@ -100,6 +103,152 @@ or suggestions.
 - Search Page wireframe.
     - <a href="https://github.com/cotebarrientos/3rd-milestone-project-my-veggie-food/blob/master/static/wireframes/011-desktop-search.png" target="_blank">Desktop</a>
     - <a href="https://github.com/cotebarrientos/3rd-milestone-project-my-veggie-food/blob/master/static/wireframes/022-mobile-search.png" target="_blank">Mobile</a>
+
 5. **Surface:** In this last phase of design, I planned the colors to be used on the website. To give it a more professional look and at the same time eye-catching for the users we used the tone **#343a40** for the navigation bar and the footer. For titles, subtitles and the navigation bar I used the text font called ***"Oswald"***, and for the paragraphs I used the text font called ***"Monserrat"***. For the ***H1*** tags I used the text color **#025830** , and for the titles and subtitles I set everything to uppercase. In addition to create a great user experience, I looked for the best way to display the images and order the information, for this I used cards that show each recipe, giving a professional and pleasant look to the user. Some pages have cover images such as the search results and contact, the purpose is to impress the user by inviting him to continue browsing the website.
+
+## Features
+
+### Existing Features
+
+The project consist in 11 pages, which can be reached through the **Navigation bar** with a conventional placing of logo (top left). Each page has a **footer** with copyright information. the website is totally responsive.
+
+#### Navbar
+
+The navigation bar has a logo on the left side, in the center it has a search bar and on the right side it has the following links:
+
+***When the user is not logged in***
+- Home 
+- Recipes
+    - Main
+    - Desserts
+    - Snacks
+    - Smoothies
+    - All
+- Register
+- Login
+- Contact
+
+***When the user is logged in***
+- Home
+- Recipes
+    - Main
+    - Desserts
+    - Snacks
+    - Smoothies
+    - All
+- Profile
+- Add Recipes
+- Logout
+- Contact
+
+#### Home Page
+
+It is responsible for welcoming future users. It is divided into 4 sections:
+
+- **Carrousel Images:** It is located at the top of the page, and has 4 images that are changing from time to time.
+
+- **Go Veggie Section:** In this section you will find a jumbotron image with a paragraph that invites you to be a vegetarian and at the same time offers you to create a user account on the website.
+
+- **Featured Recipes:** This section has 6 recipes, which are shown in images, that when you pass the mouse pointer over the image, it will show you the recipe name. Each recipe image contains a link that will direct you to the desired recipe.
+
+- **Get in Touch Section:** This section contains the social networks of the website.
+
+#### Recipes Page
+
+This page contains all the recipes from the website, which are displayed on cards that contain a related image of the recipe, the title of the recipe, a brief description and a button that invites you to learn more about the recipe. In addition, this page is divided into the following categories:
+
+- **Main:** This category is responsible to contain all the recipes selected for this category, besides this includes both breakfast, lunch or dinner.
+
+- **Desserts:** This category is responsible for containing all the recipes selected for this one. 
+
+- **Snacks:** This category is responsible for containing all the recipes selected for this one. 
+
+- **Smoothies:** This category is responsible for containing all the recipes selected for this one. 
+
+- **All:** This category is responsible to display all the recipes that are on the website.
+
+#### Recipe Page
+
+This page is responsible of displaying each recipe, and it is composed by the following:
+
+- Recipe Title
+- Recipe Image
+- A brief description of the recipe
+- Servings
+- Calories
+- Preparation Time
+- Cooking Time
+- Ingredients
+- Instructions
+- Tips
+- Created by (*the author name goes here*)
+
+#### Register Page
+
+This page allows users to create a user account. To do this the requirements are to put in an *email*, a *username* and a *password*.
+
+#### Login Page
+
+This page allows users to log in to their account, thus accessing their profile with personalized recipes. The requirements for logging in are to enter the *user name* and *password*.
+
+#### Profile
+
+This page contains the recipes of each user, and can be displayed in 2 modes which are as follows:
+
+- ***When the user has no recipes published:*** this usually happens when a user has recently created their account. When this scenario occurs, the profile welcomes you and shows you a special message with an entertaining image that implies that you have no recipes, and at the bottom of the message there is a special button that invites you to create your first recipe.
+
+- ***When the user has recipes:*** if this scenario is given, all the recipes that the user has created will appear, these will be shown in cards and in a very similar way as in the recipes page. This way the user will be able to access his/her recipes and have the possibility to edit or delete them if necessary.
+
+#### User Recipe
+
+This page is responsible of showing a specific recipe selected by the user from his/her created recipes. This is very similar to the Recipe page, containing the same components, only with the difference that at the bottom it contains 3 buttons which are the following:
+
+- **Edit Button:** This button will take you to the page containing the recipe editing form.
+
+- **Add Button:** This button will take you to the page containing the recipe adding form.
+
+- **Delete Button:** By pressing this button, you will be shown a message in a modal window asking the user if he or she is sure to carry out that action, in addition to warning that once the recipe is deleted, it cannot be recovered. There are 2 buttons in the modal window, one to cancel the action and another to carry out the process of deleting the recipe.
+
+#### Add Recipe Form
+
+This page is responsible for uploading users' recipes. In order to perform this task, the user must complete the following:
+
+- Add a recipe title
+- Choose a category
+- Write a brief description about the recipe
+- Add a valid image url
+- Add total servings
+- Add the calories per portion
+- Write the preparation time
+- Write the cooking time
+- Write the ingredients
+- Write the instructions
+- Write a tip about the recipe
+
+Once the above is completed, the user must press the submit button, and the recipe will be created.
+
+#### Edit Recipe Form
+
+This page allows the user to edit any recipes they have created. It has the same features as the add recipe form, only the difference is that it loads the existing recipe data, allowing the user to edit it in an easy way.
+
+#### Logout
+
+This link is only activated in the navigation bar when the user logs in, and is intended to allow the user to log out.
+
+#### Contact Page
+
+This page contains a cover image, page title and a small message. It has a contact form which request user name, email and a box to leave a message. Once the user finishes writing his/her message, the contact form has a Send Button, which when pressed, will display a mini modal window with a thank you message.
+
+#### Search Page
+
+This page is activated when the user uses the search bar, and it can be displayed in 2 ways which are the following
+
+- ***When there are search related results:*** It will show the recipes on cards and in a very similar way as in the recipes page.
+
+- ***When there are no results:*** It will show a message implying that there are no results, and this message is accompanied by a very entertaining image.
+
+### Features Left to Implement
+
+Everything that was contemplated at the beginning of this project has been implemented, but there are some ideas that I would like to implement in the future, for example, adding the function of rating the recipes (from 1 to 5 stars) or adding a comment section for each recipe.
 
 ***Note:** project in progress.*
