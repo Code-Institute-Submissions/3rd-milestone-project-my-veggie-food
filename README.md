@@ -251,4 +251,47 @@ This page is activated when the user uses the search bar, and it can be displaye
 
 Everything that was contemplated at the beginning of this project has been implemented, but there are some ideas that I would like to implement in the future, for example, adding the function of rating the recipes (from 1 to 5 stars) or adding a comment section for each recipe.
 
+## Technologies Used
+
+- HTML 5
+    - The project uses **HTML5** to define the structure of this website.
+- CSS 3
+    - The project uses **CSS3** to add styling to the website.
+- JavaScript
+    - The project uses **Javascript** to implement Email JS and add interactivity to the website.
+- <a href="https://www.python.org/" target="_blank">Python</a> 
+    - The project uses **Python 3.9.0** to build the backend of this website.
+- <a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask</a>
+    - The project uses **Flask 1.1.2**.
+- <a href="https://jinja.palletsprojects.com/en/2.10.x/" target="_blank">Jinja</a>
+    - The project uses **Jinja2 2.11.2**.
+- Werkzeug security
+    - the project uses **Werkzeug 1.0.1**.
+- <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+    - The project uses **Bootstrap** version 4.5.3 , to build responsive website.
+- <a href="https://jquery.com/" target="_blank">jQuery</a>
+    - The project uses jQuery version 3.5.1 to implement interactivity to the website.
+- <a href="https://www.emailjs.com/" target="_blank">Email JS</a>
+    - The project uses **Email JS** to implement a functional contact page.
+- <a href="https://www.mongodb.com/cloud/atlas" target="_blank">MongoDB Atlas</a>
+    - The project uses **MongoDB Atlas** to store all the recipes, recipe categories and users of this website.
+- <a href="https://www.heroku.com/" target="_blank">Heroku</a>
+    - The project uses **Heroku** to deploy the website.
+- <a href="https://git-scm.com/" target="_blank">Git</a>
+    - The project uses **Git** to control the different versions and history of the code.
+- <a href="https://github.com/" target="_blank">GitHub</a>
+    - The project uses **GitHub** to host the source code.
+- <a href="https://fontawesome.com/" target="_blank">FontAwesome</a>
+    - The project uses free **FontAwesome** version 5.15.1 icons.
+- <a href="https://www.adobe.com/ie/products/illustrator.html?gclid=EAIaIQobChMI7sax79jo6AIVRuztCh1rOgpzEAAYASAAEgJWMPD_BwE&sdid=88X75SKS&mv=search&ef_id=EAIaIQobChMI7sax79jo6AIVRuztCh1rOgpzEAAYASAAEgJWMPD_BwE:G:s&s_kwcid=AL!3085!3!340697722021!e!!g!!adobe%20illustrator" target="_blank">Adobe Illustrator</a>
+    - The project uses Adobe **Illustrator CS6** portable version 16.0.0, to draw vectorial images used in the website.
+- <a href="https://www.adobe.com/ie/" target="_blank">Adobe Photoshop</a>
+    - The project uses **Adobe Photoshop CS6** portable version 13.0.0, to improve the images used in the website.
+- <a href="https://pencil.evolus.vn/" target="_blank">Pencil</a>
+    - The project uses **Pencil** version 3.1.0 to create the wireframes.
+- <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
+    - The project uses **Visual Studio Code** to write the code for this website.
+- <a href="https://affinity.serif.com/en-gb/designer/" target="_blank">Affinity Designer</a>
+    - The project uses **Affinity Designer** version 1.6.5.123, to make the website logo.
+
 ***Note:** project in progress.*
