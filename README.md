@@ -1,4 +1,4 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+![My Veggie Food Website](/static/images/my_veggie_food_website.png)
 
 # My Veggie Food
 
@@ -62,6 +62,8 @@ and that is easy to navigate.
 or suggestions.
 
 ### Design Process
+
+![My Veggie Food Website](/static/images/homePage.png)
 
 1. **Strategy Plane:** My goal in creating this project was to provide a platform for users to create, read, update and delete their recipes, in order to comply with CRUD, in an easy and intuitive way.
 
@@ -297,6 +299,10 @@ Everything that was contemplated at the beginning of this project has been imple
     - The project uses **Visual Studio Code** to write the code for this website.
 - <a href="https://affinity.serif.com/en-gb/designer/" target="_blank">Affinity Designer</a>
     - The project uses **Affinity Designer** version 1.6.5.123, to make the website logo.
+
+## Testing
+
+Please view the complete testing process in this separate document <a href="" target="_blank">here</a>.
 
 ## Deployment
 
