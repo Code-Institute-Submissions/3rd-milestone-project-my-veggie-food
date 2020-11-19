@@ -98,14 +98,14 @@ nav {
 /*--------------------------------------------Search Results*/
 
 .search-title {
-    font-size: 60px;
+    font-size: 3.75rem;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 30px;
 }
 
 .message-no-found {
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: center;
     padding: 50px 0;
 }
@@ -114,7 +114,7 @@ nav {
     text-align: center;
     color: #44670c;
     padding: 10px 0;
-    font-size: 45px;
+    font-size: 2.8125rem;
 }
 
 #search_result-recipes .card-body p {
@@ -125,7 +125,7 @@ nav {
 
 #search_result-recipes .card-body a {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     display: block;
     margin: 0 auto;
 }
@@ -161,24 +161,24 @@ footer {
 
 #go_veggie h1 {
     padding: 30px 0;
-    font-size: 80px;
+    font-size: 5rem;
 }
 
 #go_veggie p {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 	1.125rem;
 }
 
 #go_veggie a {
     margin: 20px 0;
-    font-size: 20px;
+    font-size: 	1.25rem;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 #featured-recipes h1 {
     text-align: center;
-    font-size: 45px;
+    font-size: 	2.8125rem;
 }
 
 #featured-recipes hr {
@@ -234,11 +234,11 @@ footer {
 }
 
 #social-media h1 {
-    font-size: 60px;
+    font-size: 3.75rem;
 }
 
 #social-media p {
-    font-size: 25px;
+    font-size: 1.5625rem;
     padding: 20px 0;
     font-weight: bold;
 }
@@ -262,7 +262,7 @@ footer {
 /*--------------------------------------------Recipes Page*/
 
 .message-error {
-    font-size: 30px;
+    font-size: 1.875rem;
     padding-top: 60px;
     padding-bottom: 30px;
     text-align: center;
@@ -270,7 +270,7 @@ footer {
 
 .btn-message-error {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 2.5rem;
     text-transform: uppercase;
     display: block;
     margin: 0 auto;
@@ -282,7 +282,7 @@ footer {
 
 #recipe-container h1 {
     text-align: center;
-    font-size: 60px;
+    font-size: 3.75rem;
     padding-top: 20px;
     padding-bottom: 5px;
 }
@@ -302,18 +302,18 @@ footer {
     text-align: center;
     color: #504537;
     padding: 10px 0;
-    font-size: 40px;
+    font-size: 	2.5rem;
 }
 
 #recipe-container .card-body p {
     text-align: justify;
     padding: 20px 15px;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 #recipe-container .card-body a {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     display: block;
     margin: 0 auto;
     border: 20px 0;
@@ -329,7 +329,7 @@ footer {
 #each-recipe-container h2 {
     text-align: center;
     padding: 15px 0;
-    font-size: 50px;
+    font-size: 3.125rem;
     color: #025830;
     text-transform: uppercase;
 }
@@ -424,7 +424,7 @@ footer {
 #add-your-recipe h1 {
     text-align: center;
     padding: 30px 0;
-    font-size: 50px;
+    font-size: 3.125rem;
 }
 
 #add-your-recipe form {
@@ -468,7 +468,7 @@ footer {
 #registerCard h1,
 #loginCard h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 3.125rem;
     padding: 20px 0;
 }
 
@@ -490,7 +490,7 @@ footer {
 #registerCard button,
 #loginCard button {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     text-transform: uppercase;
     display: block;
     margin: 0 auto;
@@ -510,7 +510,7 @@ footer {
 }
 
 #user-profile-cover .card-body h1 {
-    font-size: 60px;
+    font-size: 3.75rem;
 }
 
 #user-profile-cover .card-body h2 {
@@ -519,14 +519,14 @@ footer {
 }
 
 #user-recipes h2 {
-    font-size: 45px;
+    font-size: 2.8125rem;
     text-align: center;
     color: #1a4c7d;
     padding: 50px 0;
 }
 
 #user-recipes h3 {
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: center;
     color: #39434c;
     padding: 20px 15px;
@@ -535,12 +535,12 @@ footer {
 #user-recipes p {
     text-align: justify;
     padding: 20px 15px;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 #user-recipes a {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     display: block;
     margin: 0 auto;
     border: 20px 0;
@@ -563,7 +563,7 @@ footer {
 }
 
 #contactIntro h1 {
-    font-size: 50px;
+    font-size: 3.125rem;
     padding-top: 30px;
 }
 
@@ -575,7 +575,7 @@ footer {
 }
 
 #contactIntro h3 {
-    font-size: 35px;
+    font-size: 2.1875rem;
 }
 
 #contactIntro i {
@@ -583,7 +583,7 @@ footer {
 }
 
 #contactIntro p {
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: 0 15px
 }
 
@@ -650,20 +650,20 @@ footer {
 @media screen and (max-width: 760px) {
    #go_veggie h1 {
     padding: 30px 0;
-    font-size: 60px;
+    font-size: 3.75rem;
    }
 }
 
 @media screen and (max-width: 760px) {
    #go_veggie p {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
    }
 }
 
 @media screen and (max-width: 760px) {
     #social-media h1 {
-     font-size: 50px;
+     font-size: 3.125rem;
     }
 }
 
@@ -681,7 +681,7 @@ footer {
         text-align: center;
         color: #504537;
         padding: 10px 0;
-        font-size: 30px;
+        font-size: 1.875rem;
     }
 }
 
@@ -689,7 +689,7 @@ footer {
     #recipe-container .card-body p {
         text-align: justify;
         padding: 20px 10px;
-        font-size: 16px;
+        font-size: 1rem;
     }
 }
 
