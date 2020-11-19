@@ -12,8 +12,8 @@ The testing process is outlined below. It includes:
 - Testing responsiveness in different screen sizes.
 - Manually testing the functionality of the links.
 - Manually testing creating an user account.
+- Manually trying to log out of the created account.
 - Manually testing proving that the user is logged in.
-- Manually testing of the user profile.
 - Manually testing the functionality of creating a recipe.
 - Manually testing the functionality of editing a recipe.
 - Testing manually the function of delete a recipe.
@@ -22,10 +22,22 @@ The testing process is outlined below. It includes:
 
 ## Validating HTML, CSS, Javascript and Python code.
 
+### HTML
+
+My HTML code has passed through the <a href="https://validator.w3.org/#validate_by_input" target="_blank">W3C Markup Validation Service.</a> Passed tests without issues, just some warnings.
+
 ### CSS
 I checked my CSS code with the <a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C Markup Validation Service</a>. This test did not produce any error.
 
 <img src="../testing-img/css_validation.png" alt="css validation">
+
+### JavaScript
+
+I used <a href="https://jshint.com/" target="_blank">JSHint</a> to check my JavaScript files. Passed tests without issues
+
+### Python
+
+I used <a href="https://github.com/psf/black" target="_blank">Black Formatter</a> and <a href="https://flake8.pycqa.org/en/latest/" target="_blank">Flake 8</a>. With these tools, my Python file passed the tests. But when I used <a href="http://pep8online.com/" target="_blank">PEP8 online</a>, it alerted me that my lines were too long, the problem with shortening them was that they would break the code.
 
 ## Compatibility with different browsers
 
@@ -72,6 +84,77 @@ The following test were made to check that all links responded as they should:
 - The button to delete recipes is only activated if the user confirms this action in the modal window.
 - The contact form "Send Message" button only accepts the form when it has completed with all required fields filled in. After that, the Send Message button opens a modal window with a successful message as expected.
 - The scroll back to top button in the Analytics page works properly.
+
+## Manually testing creating an user account.
+
+1. First I tried to create an account without filling out any fields, when I did this, the registration form did not allow me to do so. **Result: passed.**
+
+2. The second test consisted of filling in all the fields correctly and pressing the button to register. The expected result is that the user's profile should appear. **Result: passed.**
+
+<img src="../testing-img/001.png" alt="test">
+<img src="../testing-img/002.png" alt="test">
+
+## Manually trying to log out of the created account.
+
+1. In the account created, to test that the logout function works correctly, select it, and the expected result is that it shows a flash message indicating that everything has gone correctly. **Result: passed.**
+
+<img src="../testing-img/003.png" alt="test">
+
+## Manually testing proving that the user is logged in.
+
+1. The first test consisted in giving an incorrect password, the expected result is that the user cannot enter and at the same time it shows a flash message indicating the problem, it is the same if the user writes an incorrect user name. **Result : passed.**
+
+<img src="../testing-img/004.png" alt="test">
+
+2. The next test consisted of filling out everything correctly in order to log in. Once the user logs in, if he or she does not have any recipes, a message should appear indicating that there are no recipes and a button should also appear inviting the user to create his or her first recipe. In the same way, 3 new links must appear in the navigation bar: Profile, Add Recipes and Logout. **Result: passed.**
+
+<img src="../testing-img/002.png" alt="test">
+
+## Manually testing the functionality of creating a recipe.
+
+1. This test consisted in creating the first recipe for the user. Here I tested all the defense mechanisms, for example, maximum number of characters per field, try to enter a string in the integer fields, and even enter low resolution images, I passed all the tests without problems. Also try to create a recipe without filling a field, but as all fields are required, it was not possible. **Result : passed.**
+
+2. The following test consisted in filling out the form correctly and pressing the send button, the expected result is that it sends you back to the "All" category and displays a flash message. **Result: passed.**
+
+<img src="../testing-img/005.png" alt="test">
+<img src="../testing-img/006.png" alt="test">
+
+3. The next test consisted of reviewing the user profile, the expected result is to find the new recipe and you should change the appearance of his/her recipe.  **Result: passed.**
+
+<img src="../testing-img/007.png" alt="test">
+
+## Manually testing the functionality of editing a recipe.
+
+1. The new test consisted in trying to edit a recipe that was not from this user, the expected result is that the buttons to edit, add or delete the recipe do not appear if it does not belong to the user. **Result: passed.**
+
+<img src="../testing-img/008.png" alt="test">
+
+2. The next test consisted in editing the user's recipe, the expected result is that the form to be edited loads all the fields with the previous information. **Result: passed.**
+
+<img src="../testing-img/009.png" alt="test">
+
+3. Once the user has modified something, in this case in tips, the expected result is that it is modified correctly and that the user is redirected to the same recipe. In addition, a flash message should appear at the top indicating that everything has been successful. **Result: passed.**
+
+<img src="../testing-img/010.png" alt="test">
+
+## Testing manually the function of delete a recipe.
+
+1. In order to do this test, create a random recipe without much production to show the function of deleting recipes. The expected result is that when the user presses this button, should appear a modal window asking this if he/she is really sure to do this action, since once done, the recipe will be deleted forever, to press cancel, the user will be redirected to the same recipe, but if this choose to delete it, will be redirected to his/her user profile, which will appear a flash message stating that everything went well. **Result: passed.**
+
+<img src="../testing-img/011.png" alt="test">
+<img src="../testing-img/012.png" alt="test">
+
+## Manually testing the search bar.
+
+1. The first test consisted in pressing the search button without entering anything, the expected result is that it shows a message saying that the user must write something. **Result: passed.**
+
+2. The next test consisted of searching for something that is not on the site, the expected result is that a special message appears indicating that there are no search results. **Result: passed.**
+
+<img src="../testing-img/013.png" alt="test">
+
+3. The last test consisted in looking for something that if it was on the website, for example, carrot. The expected result is that some cards appear showing the recipes in an orderly and intuitive way for the user. **Result: passed.**
+
+<img src="../testing-img/014.png" alt="test">
 
 ## Manually testing on Contact page
 
