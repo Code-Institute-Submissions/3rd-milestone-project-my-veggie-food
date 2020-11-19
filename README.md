@@ -302,7 +302,7 @@ Everything that was contemplated at the beginning of this project has been imple
 
 ## Testing
 
-Please view the complete testing process in this separate document <a href="" target="_blank">here</a>.
+Please view the complete testing process in this separate document <a href="https://github.com/cotebarrientos/3rd-milestone-project-my-veggie-food/blob/master/static/testing-doc/TESTING.md" target="_blank">here</a>.
 
 ## Deployment
 
