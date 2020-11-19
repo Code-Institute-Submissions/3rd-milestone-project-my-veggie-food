@@ -354,6 +354,40 @@ To clone this project from GitHub:
 > `git clone https://github.com/USERNAME/REPOSITORY`
 7. Press 'Enter' to create your local clone.
 
+## Credits
 
+### Content
 
-***Note:** project in progress.*
+The recipes used in this website were consulted to the following sources:
+
+- **Websites**
+    - <a href="https://www.bbcgoodfood.com/" target="_blank">BBC Good Food</a>
+    - <a href="https://www.olivemagazine.com/recipes/" target="_blank">Olive Magazine</a>
+    - <a href="https://www.alpro.com/uk/recipes/" target="_blank">Alpro</a>
+
+- **Recipe Books**
+    - *Smoothies & Power Shakes*, authors: Nina Engels and Susanne Grünklee. **ISBN** 978-3-625-17269-7
+    - *5:2 Veggie and Vegan*, author: Kate Harrison. **ISBN** 978-1-4091-7126-3
+    - *Vegetarian*, author: Alice Hart. **ISBN** 978-1-76063-437-7
+    - *Vegan Easy*, author: Denise Smart. **ISBN** 978-1-52910-322-9
+
+### Media
+
+- The images used in this site were obtained from Google images and were improved using Adobe Photoshop.
+
+### Acknowledgements
+
+- These websites were really useful to troubleshooting the issues I faced:
+    - <a href="https://stackoverflow.com/" target="_blank">Stackoverflow</a>
+    - <a href="https://getbootstrap.com/docs/4.5/getting-started/introduction/" target="_blank">Bootstrap Documentation</a>
+    - <a href="https://www.w3schools.com/" target="_blank">w3schools</a>
+
+- Thank you to the following people who helped with support, inspiration and guidance at different stages in the project:
+
+    - My family and friends.
+    - The guidance and support of my mentor Brian Macharia.
+
+> #### **Disclaimer**
+>
+>> The content of this Website is for educational purposes only.
+
