@@ -1,55 +1,72 @@
 {% extends 'base.html' %} {% block content %}
 
 <section id="recipe-container" class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="">{{ page_title }}</h1>
-            <hr>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="">{{ page_title }}</h1>
+      <hr />
     </div>
+  </div>
 
-    <!-- Message flash when the users add a recipe -->
-    {% for message in get_flashed_messages() %}
-    <div id="add-message" class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Well done!</h4>
-        <p>{{ message }}</p>
+  <!-- Message flash when the users add a recipe -->
+  {% for message in get_flashed_messages() %}
+  <div id="add-message" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>{{ message }}</p>
+  </div>
+  {% endfor %}
+
+  <!-- This message is only displayed if the category does not contain any recipes  -->
+  {% if recipes.count() == 0 %}
+  <div class="row">
+    <div class="col-12 pl-0 pr-0">
+      <img
+        src="/static/images/something_is_not_right_no-recipes-found.png"
+        class="d-block w-100"
+        alt="ups, something is not right here"
+      />
+      <div class="col-12">
+        <p class="message-error">Sorry, no recipes found!</p>
+      </div>
+      <div class="form-row special-btn-margin">
+        <a
+          role="button"
+          class="btn btn-success btn-lg btn-message-error"
+          href="{{ url_for('index') }}"
+          >Go Home Page <i class="fas fa-home"></i
+        ></a>
+      </div>
     </div>
-    {% endfor %}
-
-    <!-- This message is only displayed if the category does not contain any recipes  -->
-    {% if recipes.count() == 0 %}
-    <div class="row">
-        <div class="col-12 pl-0 pr-0">
-                <img src="/static/images/something_is_not_right_no-recipes-found.png" class="d-block w-100" alt="ups, something is not right here"/>
-                <div class="col-12">
-                    <p class="message-error">Sorry, no recipes found!</p>
-                </div>
-                <div class="form-row special-btn-margin">
-                    <a role="button" class="btn btn-success btn-lg btn-message-error" href="{{ url_for('index') }}">Go Home Page <i class="fas fa-home"></i></a>
-                </div>
+  </div>
+  {% else %}
+  <!-- Here will appear all the recipes created in an organized and easy to access way for the user -->
+  {% for recipe in recipes %}
+  <div class="container card mb-4 shadow">
+    <div class="card-body">
+      <div class="row h-100">
+        <div class="col-md-4 col-sm-12 my-auto">
+          <img
+            src="{{ recipe.image_url }}"
+            alt="{{ recipe.recipe_title }}"
+            class="rounded img-style"
+          />
         </div>
-     </div>
-    {% else %}
-    <!-- Here will appear all the recipes created in an organized and easy to access way for the user -->
-        {% for recipe in recipes %}
-        <div class="container card mb-4 shadow">
-            <div class="card-body">
-                <div class="row h-100">
-                    <div class="col-md-4 col-sm-12 my-auto">
-                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_title }}" class="rounded img-style"/>
-                    </div>
-                    <div class="col-md-8 col-sm-12 my-auto">
-                        <h3>{{ recipe.recipe_title }}</h3>
-                         <p>{{ recipe.description |truncate(200) }}</p>
-                         <div class="form-row">
-                            <a role="button" class="btn btn-success" href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}">Read More</a>
-                         </div>
-                    </div>
-                </div>                   
-            </div>
+        <div class="col-md-8 col-sm-12 my-auto">
+          <h3>{{ recipe.recipe_title }}</h3>
+          <p>{{ recipe.description |truncate(200) }}</p>
+          <div class="form-row">
+            <a
+              role="button"
+              class="btn btn-success"
+              href="{{url_for('get_recipe', recipe_id=recipe._id, category=recipe.category_name)}}"
+              >Read More</a
+            >
+          </div>
         </div>
-        {% endfor %}
-    {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
 </section>
 
 {% endblock %}

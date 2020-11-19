@@ -1,65 +1,83 @@
 {% extends 'base.html' %} {% block content %}
 
 <section id="user-profile-cover" class="container-fluid">
-    <div class="row h-100">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
-            <div class="card card-block shadow">
-                <div class="card-body">
-                    <h1>Welcome</h1>
-                    <h2>{{ username }}</h2>
-                </div>
-            </div>
+  <div class="row h-100">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
+      <div class="card card-block shadow">
+        <div class="card-body">
+          <h1>Welcome</h1>
+          <h2>{{ username }}</h2>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- Message flash when the users delete a recipe -->
 {% for message in get_flashed_messages() %}
-    <div id="delete-message" class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Well done!</h4>
-        <p>{{ message }}</p>
-    </div>
+<div id="delete-message" class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>{{ message }}</p>
+</div>
 {% endfor %}
 
 <section id="user-recipes" class="container-fluid">
-    {% if recipes |length > 0 %}
-    <div class="row">
-        <div class="col-12">
-            <h2>All Your Recipes</h2>
-        </div>
-        {% for rec in recipes %}
-        <div class="container card mb-4 shadow">
-            <div class="card-body">
-                <div class="row h-100">
-                    <div class="col-md-4 col-sm-12 my-auto">
-                        <img src="{{ rec.image_url }}" alt="{{ rec.recipe_title }}" class=" rounded img-style"/>
-                    </div>
-                    <div class="col-md-8 col-sm-12 my-auto">
-                        <h3>{{ rec.recipe_title }}</h3>
-                         <p>{{ rec.description |truncate(200) }}</p>
-                         <div class="form-row">
-                            <a role="button" class="btn btn-secondary" href="{{url_for('get_recipe', recipe_id=rec._id, category=rec.category_name)}}">Read More</a>
-                         </div>
-                    </div>
-                </div>                   
+  {% if recipes |length > 0 %}
+  <div class="row">
+    <div class="col-12">
+      <h2>All Your Recipes</h2>
+    </div>
+    {% for rec in recipes %}
+    <div class="container card mb-4 shadow">
+      <div class="card-body">
+        <div class="row h-100">
+          <div class="col-md-4 col-sm-12 my-auto">
+            <img
+              src="{{ rec.image_url }}"
+              alt="{{ rec.recipe_title }}"
+              class="rounded img-style"
+            />
+          </div>
+          <div class="col-md-8 col-sm-12 my-auto">
+            <h3>{{ rec.recipe_title }}</h3>
+            <p>{{ rec.description |truncate(200) }}</p>
+            <div class="form-row">
+              <a
+                role="button"
+                class="btn btn-secondary"
+                href="{{url_for('get_recipe', recipe_id=rec._id, category=rec.category_name)}}"
+                >Read More</a
+              >
             </div>
+          </div>
         </div>
-        {% endfor %}
+      </div>
     </div>
-    {% else %}
-    <div class="row">
-        <div class="col-md-8 col-ms-12 my-auto">
-            <h2>You don't have any recipe at the moment</h2>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <img src="/static/images/001-veggie_friend.png" class="img-fluid no-recipes-img" alt="No recipes"/>
-        </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="row">
+    <div class="col-md-8 col-ms-12 my-auto">
+      <h2>You don't have any recipe at the moment</h2>
     </div>
-    <div class="form-row btn-special-add-recipe">
-        <a role="button" href="{{ url_for('add_recipes') }}" class="btn btn-lg btn-success btn-special-add-recipe">Add my first recipe <i class="fas fa-plus-circle"></i></a>
+    <div class="col-md-4 col-sm-12">
+      <img
+        src="/static/images/001-veggie_friend.png"
+        class="img-fluid no-recipes-img"
+        alt="No recipes"
+      />
     </div>
-    
-    {% endif %}
+  </div>
+  <div class="form-row btn-special-add-recipe">
+    <a
+      role="button"
+      href="{{ url_for('add_recipes') }}"
+      class="btn btn-lg btn-success btn-special-add-recipe"
+      >Add my first recipe <i class="fas fa-plus-circle"></i
+    ></a>
+  </div>
+
+  {% endif %}
 </section>
 
 {% endblock %}

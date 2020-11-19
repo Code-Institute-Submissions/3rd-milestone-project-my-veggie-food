@@ -1,25 +1,29 @@
 // To send mail from Contact Page
 
-function sendMail(contactForm){
-    emailjs.send("gmail", "contact_template", {
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.email.value,
-        "message": contactForm.message.value
+function sendMail(contactForm) {
+  emailjs
+    .send("gmail", "contact_template", {
+      from_name: contactForm.name.value,
+      from_email: contactForm.email.value,
+      message: contactForm.message.value,
     })
-    .then (
-        function (response){
-            //Add message to modal
-            response = $(".message-sent-text").text("We'll be in touch with you as soon as possible.");
-            //Only opens modal on successful response
-            $("#messageSent").modal("toggle");
-            $("#btn-close-modal").click(function(){
-                location.reload();
-            });
-        },
-        function(error){
-            alert("failed", error); // To block from loading a new page
+    .then(
+      function (response) {
+        //Add message to modal
+        response = $(".message-sent-text").text(
+          "We'll be in touch with you as soon as possible."
+        );
+        //Only opens modal on successful response
+        $("#messageSent").modal("toggle");
+        $("#btn-close-modal").click(function () {
+          location.reload();
         });
-    return false;
+      },
+      function (error) {
+        alert("failed", error); // To block from loading a new page
+      }
+    );
+  return false;
 }
 
 // Scroll back to top button
@@ -29,10 +33,15 @@ function sendMail(contactForm){
 mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction();
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 100|| document.documentElement.scrollTop > 100) {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
