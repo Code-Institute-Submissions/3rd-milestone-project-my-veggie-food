@@ -13,6 +13,14 @@
     </div>
 </section>
 
+<!-- Message flash when the users delete a recipe -->
+{% for message in get_flashed_messages() %}
+    <div id="delete-message" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>{{ message }}</p>
+    </div>
+{% endfor %}
+
 <section id="user-recipes" class="container-fluid">
     {% if recipes |length > 0 %}
     <div class="row">

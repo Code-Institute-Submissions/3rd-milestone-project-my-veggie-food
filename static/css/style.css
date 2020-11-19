@@ -40,6 +40,36 @@ h1 {
     object-fit: cover;
 }
 
+/* Scroll button */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    font-size: 1.875rem;
+    border: none;
+    outline: none;
+    background-color: #fd7000;
+    color: white;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50%;
+}
+  
+#myBtn:hover {
+    background-color:#83A153;
+}
+
+  /* Messages flash */
+
+#add-message, 
+#edit-message,
+#delete-message {
+    text-align: center;
+}
+
 /*--------------------------------------------Navbar*/
 
 .menu-collapse-align {
@@ -57,7 +87,8 @@ h1 {
 }
 
 #searchRecipe > input {
-    width: 150px;    
+    width: 200px; 
+    max-width: 200px;   
 }
 
 nav {
@@ -589,9 +620,17 @@ footer {
    }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1024px) {
+    #searchRecipe > input {
+     width: 150px;
+     max-width: 150px;     
+    }
+ }
+
+@media screen and (max-width: 600px) {
    #searchRecipe > input {
-    width: 100px;    
+    width: 100px; 
+    max-width: 100px;   
    }
 }
 

@@ -8,6 +8,14 @@
         </div>
     </div>
 
+    <!-- Message flash when the users add a recipe -->
+    {% for message in get_flashed_messages() %}
+    <div id="add-message" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>{{ message }}</p>
+    </div>
+    {% endfor %}
+
     <!-- This message is only displayed if the category does not contain any recipes  -->
     {% if recipes.count() == 0 %}
     <div class="row">

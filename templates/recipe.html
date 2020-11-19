@@ -1,5 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
+<!-- Message flash when the users edit a recipe -->
+{% for message in get_flashed_messages() %}
+<div id="edit-message" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>{{ message }}</p>
+</div>
+{% endfor %}
+
 <section id="each-recipe-container" class="container-fluid">
     <div class="row">
         <div class="col-12">
