@@ -34,13 +34,13 @@
                 <br>
                 <form onsubmit="return sendMail(this);">
                     <label for="name">Your Name <span class="required-symbol">*</span></label>
-                    <input type="text" name="name" id="name" class="form-control" required/>
+                    <input type="text" name="name" id="name" class="form-control" maxlength="80" autocomplete="off" required/>
                     <br>
                     <label for="email">Your Email <span class="required-symbol">*</span></label>
-                    <input type="email" name="email" id="email" class="form-control" required/>
+                    <input type="email" name="email" id="email" class="form-control" autocomplete="off" required/>
                     <br>
                     <label for="message">Your Message <span class="required-symbol">*</span></label>
-                    <textarea rows="8" name="message" id="message" class="form-control" required></textarea>
+                    <textarea rows="8" name="message" id="message" class="form-control" maxlength="5000" required></textarea>
                     <br>
                     <div class="form-row">
                         <div class="col-12">
