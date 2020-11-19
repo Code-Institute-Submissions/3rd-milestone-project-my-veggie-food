@@ -78,12 +78,12 @@ h1 {
 }
 
 .form-inline {
-  align-items: left;
+  text-align: left;
 }
 
 #searchRecipe {
     padding-left: 20%;
-    position: center;
+    align-items: center;
 }
 
 #searchRecipe > input {
@@ -616,7 +616,6 @@ footer {
 @media screen and (max-width: 760px) {
     #searchRecipe {
       padding-left: 0%;
-      position: left;
    }
 }
 
@@ -637,7 +636,6 @@ footer {
 @media screen and (max-width: 400px) {
     #searchRecipe {
       padding-left: 0%;
-      position: left;
    }
 }
 
