@@ -267,6 +267,10 @@ Everything that was contemplated at the beginning of this project has been imple
     - The project uses **Jinja2 2.11.2**.
 - Werkzeug security
     - the project uses **Werkzeug 1.0.1**.
+- <a href="https://github.com/psf/black" target="_blank">Black formatter</a>
+    - The project uses **Black Formatter** to fix and format python files.
+- <a href="https://flake8.pycqa.org/en/latest/" target="_blank">Flake 8</a>
+    - The project uses **Flake 8** to check that the python files comply with the PEP 8 rule.
 - <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
     - The project uses **Bootstrap** version 4.5.3 , to build responsive website.
 - <a href="https://jquery.com/" target="_blank">jQuery</a>
@@ -293,5 +297,63 @@ Everything that was contemplated at the beginning of this project has been imple
     - The project uses **Visual Studio Code** to write the code for this website.
 - <a href="https://affinity.serif.com/en-gb/designer/" target="_blank">Affinity Designer</a>
     - The project uses **Affinity Designer** version 1.6.5.123, to make the website logo.
+
+## Deployment
+
+### Deploying using Heroku
+
+1. In Heroku, create an app. The app must have a unique name.
+2. Link that app to the GitHub repository by going to the "Deploy" tab in the main app menu.
+3. In the Settings tab, add the corresponding Configuration Variables which are the same that are present in the local development:
+
+>`IP = 0.0.0.0`
+>
+>`PORT = 5000`
+>
+>`MONGO_DBNAME = |database name|`
+>
+>`MONGO_URI = mongodb+srv://...`
+>
+>`SECRET_KEY = |secret key|`
+
+It is very important, to make the project run in Heroku, to have created a **requirements.txt** document and a **Procfile** document. To do this you must use the following commands:
+
+- To create a Procfile file
+> `echo web: python app.py > Procfile`
+
+- To create a requirements.txt file
+> `pip3 freeze --local > requirements.txt`
+
+### Deploying in Heroku using the Terminal
+
+1. Create a new app. The app must have a unique name.
+2. In the terminal, you have to login into Heroku typing `heroku login -i`, and then you have to write your username and password.
+3. To initialize your git repository, you have to type in the terminal `git init`. After doing this, to link this GitHub repository with the app previously created in Heroku, you must type the following in the terminal `git remote add heroku https://my-veggie-food-2020recipes.herokuapp.com/`
+4. Create a requirements.txt to run the app `pip3 freeze --local > requirements.txt`
+5. To run the web app, you have to create a Procfile file `echo web: python app.py > Procfile`
+
+#### To update the GitHub repository and the Heroku app.
+
+- `git status`
+- `git add`
+- `git commit -m "Write your commit here!"`
+- `git push heroku master`
+
+### Cloning the project
+
+To clone this project from GitHub:
+
+1. Follow this link to the <a href="https://github.com/cotebarrientos/3rd-milestone-project-my-veggie-food" target="_blank">Project GitHub repository.</a>
+2. Scroll to the top of this repository and click on the "clone or download button".
+3. Decide whether you want to clone the project using HTTPS or an SSH key and do the following:
+    - HTTPS: click on the checklist icon to the right of the URL.
+    - SSH key: first click on 'Use SSH' then click on the same icon as above.
+4. Open the 'Terminal'.
+5. Choose the location for the cloned directory.
+6. Type `git clone`, and then paste the clone URL.
+> `git clone https://github.com/USERNAME/REPOSITORY`
+7. Press 'Enter' to create your local clone.
+
+
 
 ***Note:** project in progress.*
