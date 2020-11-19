@@ -1,4 +1,5 @@
 import os
+import random
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -100,7 +101,10 @@ def validate_form(form):
 # Home Page
 @app.route("/")
 def index():
-    return render_template("index.html", page_title="Home")
+    collection = mongo.db.recipes
+    recipes = list(collection.find({"created_by": "myveggieadmin"}))
+    random.shuffle(recipes)
+    return render_template("index.html", page_title="Home", recipes=recipes[:6])
 
 
 # Register page
@@ -160,17 +164,17 @@ def login():
 
 
 # User Profile
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
-    recipes = mongo.db.recipes.find({"created_by": username})
-
-    user_recipes = []
-    for rc in recipes:
-        user_recipes.append(rc)
-
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     if session["user"]:
+        # grab the session user's username from db
+        username = mongo.db.users.find_one({"username": session["user"]})["username"]
+        recipes = mongo.db.recipes.find({"created_by": username})
+
+        user_recipes = []
+        for rc in recipes:
+            user_recipes.append(rc)
+
         return render_template(
             "profile.html",
             username=username,
@@ -210,6 +214,9 @@ def get_recipes(category):
         recipes = mongo.db.recipes.find({"category_name": "Snack"})
     elif category == "smoothies":
         recipes = mongo.db.recipes.find({"category_name": "Smoothies"})
+    else:
+        category = "All recipes"
+        recipes = mongo.db.recipes.find()
     return render_template(
         "recipes.html", recipes=recipes, category=category, page_title=category
     )
@@ -239,7 +246,7 @@ def search():
             result=result,
             query=query,
             message="No results found. Please try again",
-            page_title="Upss, no results",
+            page_title="Ups, no results",
         )
 
 
@@ -268,6 +275,7 @@ def add_recipes():
                 "created_by": session["user"],
             }
             mongo.db.recipes.insert_one(recipe)
+            flash("Recipe Successfully Added")
             return redirect(url_for("get_recipes", category="all"))
         else:
             categories = mongo.db.categories.find()
@@ -310,6 +318,7 @@ def edit_recipe(recipe_id):
                 "created_by": session["user"],
             }
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, edit_recipe)
+            flash("Recipe Successfully edited")
             return redirect(url_for("get_recipe", recipe_id=recipe_id))
         else:
             recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -338,6 +347,7 @@ def delete_recipe(recipe_id):
     username = mongo.db.users.find_one({"username": session["user"]})["username"]
     recipes = mongo.db.recipes.find({"created_by": username})
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
     return redirect(
         url_for("profile", username=username, recipes=recipes, page_title="My Profile")
     )
