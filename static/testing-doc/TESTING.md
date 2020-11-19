@@ -22,6 +22,11 @@ The testing process is outlined below. It includes:
 
 ## Validating HTML, CSS, Javascript and Python code.
 
+### CSS
+I checked my CSS code with the <a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C Markup Validation Service</a>. This test did not produce any error.
+
+<img src="../testing-img/css_validation.png" alt="css validation">
+
 ## Compatibility with different browsers
 
 In order to ensure that the website would work properly in the following browsers, responsiveness tests, button and link checks were done, as well as tests on the look of the website to ensure that the colors, images and fonts used would display correctly.
@@ -53,3 +58,46 @@ Here as you can see, there are some screenshots of how the website looks in diff
 - **Xiaomi Mi A1**: This mobile device was used to test the behavior of the website, using browsers such as Chrome, Mozilla Firefox and DuckDuckGo.
 
 - **Xiaomi Poco x3**: This mobile device was used to test the behavior of the website, using browsers such as Chrome, Mozilla Firefox and DuckDuckGo.
+
+## Manually testing the functionality of the links
+
+The following test were made to check that all links responded as they should:
+
+- Menu bar items were clicked on from each page to make sure that they navigate to the correct page.
+- Clicking on the logo in the menu bar leads the user back to the home page.
+- All buttons were clicked on to check that they take the user to the correct page.
+- The registration form button is only active when all fields are completed.
+- The login form button is only active when the user completes the required fields.
+- The submit button is only activated if both the form to add or edit recipes is fully completed.
+- The button to delete recipes is only activated if the user confirms this action in the modal window.
+- The contact form "Send Message" button only accepts the form when it has completed with all required fields filled in. After that, the Send Message button opens a modal window with a successful message as expected.
+- The scroll back to top button in the Analytics page works properly.
+
+## Manually testing on Contact page
+
+The contact form was made responsive using the EmailJS service. In order to test that the contact form works properly, I did the following tests:
+
+1. I tried submitting the form without the **name**.
+
+<img src="../testing-img/01-contact_form_test.jpg" alt="contact test">
+
+2. I tried submitting the form without the **email**.
+
+<img src="../testing-img/02-contact_form_test.jpg" alt="contact test">
+
+3. I tried submitting the form without the **message**.
+
+<img src="../testing-img/03-contact_form_test.jpg" alt="contact test">
+
+As you can see, the contact form produced the correct error message as expected.
+
+The following test consisted of filling out the entire contact form and checking that the message was indeed sent.
+
+<img src="../testing-img/04-contact_form_test.jpg" alt="contact test">
+<img src="../testing-img/05-contact_form_test.jpg" alt="contact test">
+
+- As you can see, the message was sent correctly, and a modal window appears with a message that warns us that the message was indeed sent.
+
+<img src="../testing-img/06-contact_form_test.jpg" alt="contact test">
+
+- In this screenshot, you can see that the message has indeed reached the email that has been used to receive the users' messages.
